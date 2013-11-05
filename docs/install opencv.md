@@ -1,6 +1,6 @@
 # OpenCV
 
-This will guide you through installing OpenCV on the Raspberry Pi
+This will guide you through installing OpenCV/SimpleCV on the Raspberry Pi
 
 ## 1. Setup Camera Hardware
 
