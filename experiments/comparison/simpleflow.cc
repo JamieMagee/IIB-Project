@@ -46,6 +46,7 @@ void SimpleFlow::drawOptFlowMap(Mat &frame, int step)
 
 Mat SimpleFlow::calcOptFlowMap(Mat &frame, int layers, int averaging_block_size, int max_flow)
 {
+  nextImg = frame;
   if (prevImg.data)
   {
     calcOpticalFlowSF(prevImg, nextImg, flow, layers, averaging_block_size, max_flow);

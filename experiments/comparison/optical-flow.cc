@@ -106,7 +106,7 @@ int main(int argc, char** argv)
       outputsf = output.substr(0, split)+".simpleflow.avi";
     }
     printf("Output file %s using SimpleFlow optical flow\n\n", outputsf.c_str());
-    farnebackFlow(cap, outputsf);
+    simpleFlow(cap, outputsf);
   }
   
   return 0;  
