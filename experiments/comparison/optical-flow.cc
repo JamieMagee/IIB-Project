@@ -54,7 +54,8 @@ int main(int argc, char** argv)
 		}
 	}
   
-  std::string input(argv[optind++]);
+  std::string input;
+  if (argv[optind++]) input = argv[optind];
   
   cv::VideoCapture cap(input);
   if(!cap.isOpened())

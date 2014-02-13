@@ -71,7 +71,7 @@ cv::Mat Farneback::calcOptFlowMap(cv::Mat frame, cv::FileStorage file, double py
   if(prevImg.data)
   {
     calcOpticalFlowFarneback(prevImg, nextImg, flow, pyr_scale, levels, winsize, iterations, poly_n, poly_sigma, flags);
-    file << "Flow Field " << flow;
+    file << "FlowField " << flow;
     //drawOptFlowColour(frame);
     drawOptFlowMap(frame, 16);
   }
