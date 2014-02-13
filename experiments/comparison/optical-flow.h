@@ -1,19 +1,16 @@
-#include "opencv2/imgproc/imgproc.hpp"
-#include "opencv2/video/tracking.hpp"
-#include "opencv2/highgui/highgui.hpp"
+//#include "opencv2/imgproc/imgproc.hpp"
+//#include "opencv2/video/tracking.hpp"
+//#include "opencv2/highgui/highgui.hpp"
 #include "farneback.h"
 #include "lucas-kanade.h"
 #include "simpleflow.h"
 
-#include <stdio.h>
+#include <cstdio>
 #include <getopt.h>
-#include <string.h>
+#include <string>
 
-using namespace std;
-using namespace cv;
-
-void farnebackFlow(VideoCapture cap, string output);
-void lucasKanadeFlow(VideoCapture cap, string output);
-void simpleFlow(VideoCapture cap, string output);
+void farnebackFlow(cv::VideoCapture cap, std::string output);
+void lucasKanadeFlow(cv::VideoCapture cap, std::string output);
+void simpleFlow(cv::VideoCapture cap, std::string output);
 void help(char** argv);
 void version();

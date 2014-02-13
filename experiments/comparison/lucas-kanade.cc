@@ -1,6 +1,6 @@
 #include "lucas-kanade.h"
 
-void LucasKanade::drawOptFlowMap(Mat &frame, vector<Point2f> prevPts, vector<Point2f> nextPts)
+void LucasKanade::drawOptFlowMap(cv::Mat &frame, std::vector<cv::Point2f> prevPts, std::vector<cv::Point2f> nextPts)
 {
   double l_max, l;
   for(int i = 0; i < nextPts.size(); i++)
@@ -13,9 +13,9 @@ void LucasKanade::drawOptFlowMap(Mat &frame, vector<Point2f> prevPts, vector<Poi
   {
     double scaleSize = 5.0 * l/l_max; 
     
-    Point points[2];
-    points[0] = Point(cvRound(prevPts[i].x), cvRound(prevPts[i].y));
-    points[1] = Point(cvRound(nextPts[i].x), cvRound(nextPts[i].y));
+    cv::Point points[2];
+    points[0] = cv::Point(cvRound(prevPts[i].x), cvRound(prevPts[i].y));
+    points[1] = cv::Point(cvRound(nextPts[i].x), cvRound(nextPts[i].y));
 
     line(frame, points[0], points[1], CV_RGB(0, 255, 0), 1, CV_AA);
 	  
@@ -32,15 +32,25 @@ void LucasKanade::drawOptFlowMap(Mat &frame, vector<Point2f> prevPts, vector<Poi
   }
 }
 
-Mat LucasKanade::calcOptFlowMap(Mat frame, int maxCorners)
+cv::Mat LucasKanade::calcOptFlowMap(cv::Mat frame, cv::FileStorage file, int maxCorners)
 {
   cvtColor(frame, nextImg, CV_BGR2GRAY);
-  goodFeaturesToTrack(nextImg, nextPts, maxCorners, 0.01, 5);
-  cornerSubPix(nextImg, nextPts, Size(10, 10), Size(-1, -1), TermCriteria(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.3));
+  
+  goodFeaturesToTrack(nextImg, nextPts, maxCorners, 0.0000001, 0);
+  cornerSubPix(nextImg, nextPts, cv::Size(10, 10), cv::Size(-1, -1), cv::TermCriteria(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.3));
+  // for (int i = 0; i < frame.rows; i++)
+  // {
+    // for(int j = 0; j < frame.cols; j++)
+    // {
+      // nextPts.push_back(cv::Point2f(i, j));
+    // }
+  // }
   
   if(prevImg.data)
   {
     calcOpticalFlowPyrLK(prevImg, nextImg, prevPts, nextPts, status, err);
+    file << "nextPts" << nextPts;
+    file << "prevPts" << prevPts;
     drawOptFlowMap(frame, prevPts, nextPts);
   }
   std::swap(prevImg, nextImg);

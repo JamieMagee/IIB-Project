@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	int option_index;
   int c = 0;
   unsigned char method = 0;
-  string output = "";
+  std::string output = "";
 
 	while (c != -1)
 	{
@@ -54,23 +54,23 @@ int main(int argc, char** argv)
 		}
 	}
   
-  string input(argv[optind++]);
+  std::string input(argv[optind++]);
   
-  VideoCapture cap(input);
+  cv::VideoCapture cap(input);
   if(!cap.isOpened())
     return -1;
 
   if (method & 0x01)
   {
-    string outputlk = "";
+    std::string outputlk = "";
     if (output == "")
     {
-      string::size_type split = input.find_last_of('.');
+      std::string::size_type split = input.find_last_of('.');
       outputlk = input.substr(0, split)+".lucas-kanade.avi";
     }
     else
     {
-      string::size_type split = output.find_last_of('.');
+      std::string::size_type split = output.find_last_of('.');
       outputlk = output.substr(0, split)+".lucas-kanade.avi";
     }
     printf("Output file %s using Lucas-Kanade optical flow\n\n", outputlk.c_str());
@@ -78,15 +78,15 @@ int main(int argc, char** argv)
   }
   if (method & 0x02)
   {
-    string outputfb = "";
+    std::string outputfb = "";
     if (output == "")
     {
-      string::size_type split = input.find_last_of('.');
+      std::string::size_type split = input.find_last_of('.');
       outputfb = input.substr(0, split)+".farneback.avi";
     }
     else
     {
-      string::size_type split = output.find_last_of('.');
+      std::string::size_type split = output.find_last_of('.');
       outputfb = output.substr(0, split)+".farneback.avi";
     }
     printf("Output file %s using Farneback optical flow\n\n", outputfb.c_str());
@@ -94,15 +94,15 @@ int main(int argc, char** argv)
   }
   if (method & 0x04)
   {
-    string outputsf = "";
+    std::string outputsf = "";
     if (output == "")
     {
-      string::size_type split = input.find_last_of('.');
+      std::string::size_type split = input.find_last_of('.');
       outputsf = input.substr(0, split)+".simpleflow.avi";
     }
     else
     {
-      string::size_type split = output.find_last_of('.');
+      std::string::size_type split = output.find_last_of('.');
       outputsf = output.substr(0, split)+".simpleflow.avi";
     }
     printf("Output file %s using SimpleFlow optical flow\n\n", outputsf.c_str());
@@ -112,47 +112,52 @@ int main(int argc, char** argv)
   return 0;  
 }
 
-void farnebackFlow(VideoCapture cap, string output)
+void farnebackFlow(cv::VideoCapture cap, std::string output)
 {
   Farneback *fb = new Farneback();
-  Mat frame;    
+  cv::Mat frame;    
   
-  VideoWriter vWriter;
+  cv::VideoWriter vWriter;
   vWriter.open(output, cap.get(CV_CAP_PROP_FOURCC), cap.get(CV_CAP_PROP_FPS),
-                Size((int) cap.get(CV_CAP_PROP_FRAME_WIDTH),
+                cv::Size((int) cap.get(CV_CAP_PROP_FRAME_WIDTH),
                      (int) cap.get(CV_CAP_PROP_FRAME_HEIGHT)));
                      
   cap.set(CV_CAP_PROP_POS_FRAMES, 0);
+  cv::FileStorage file(output+".yml", cv::FileStorage::WRITE);
+  
   for (int i = 0; i < cap.get(CV_CAP_PROP_FRAME_COUNT); i++)
   {
     clock_t tStart = clock();
     cap >> frame;
     
-    vWriter << fb->calcOptFlowMap(frame, 0.5, 3, 15, 3, 5, 1.2, 0);
+    vWriter << fb->calcOptFlowMap(frame, file, 0.5, 3, 15, 3, 5, 1.2, 0);
     
     printf("Frame %u took %.2fs to process\n",(int)cap.get(CV_CAP_PROP_POS_FRAMES), 
            (double)(clock() - tStart)/CLOCKS_PER_SEC);
   }
+  file.release();
   printf("\nProcessing complete for %s\n", output.c_str());
 }
 
-void lucasKanadeFlow(VideoCapture cap, string output)
+void lucasKanadeFlow(cv::VideoCapture cap, std::string output)
 {
   LucasKanade *lk = new LucasKanade();
-  Mat frame;
+  cv::Mat frame;
   
-  VideoWriter vWriter;
+  cv::VideoWriter vWriter;
   vWriter.open(output, cap.get(CV_CAP_PROP_FOURCC), cap.get(CV_CAP_PROP_FPS),
-                Size((int) cap.get(CV_CAP_PROP_FRAME_WIDTH),
+                cv::Size((int) cap.get(CV_CAP_PROP_FRAME_WIDTH),
                      (int) cap.get(CV_CAP_PROP_FRAME_HEIGHT)));
   
   cap.set(CV_CAP_PROP_POS_FRAMES, 0);
+  cv::FileStorage file(output+".yml", cv::FileStorage::WRITE);
+  
   for (int i = 0; i < cap.get(CV_CAP_PROP_FRAME_COUNT); i++)
   {
     clock_t tStart = clock();
     cap >> frame;
     
-    vWriter << lk->calcOptFlowMap(frame, 500);
+    vWriter << lk->calcOptFlowMap(frame, file, 200000);
     
     printf("Frame %u took %.2fs to process\n",(int)cap.get(CV_CAP_PROP_POS_FRAMES), 
            (double)(clock() - tStart)/CLOCKS_PER_SEC);
@@ -160,14 +165,14 @@ void lucasKanadeFlow(VideoCapture cap, string output)
   printf("\nProcessing complete for %s\n", output.c_str());
 }
 
-void simpleFlow(VideoCapture cap, string output)
+void simpleFlow(cv::VideoCapture cap, std::string output)
 {
   SimpleFlow *sf = new SimpleFlow();
-  Mat frame;
+  cv::Mat frame;
   
-  VideoWriter vWriter;
+  cv::VideoWriter vWriter;
   vWriter.open(output, cap.get(CV_CAP_PROP_FOURCC), cap.get(CV_CAP_PROP_FPS),
-                Size((int) cap.get(CV_CAP_PROP_FRAME_WIDTH),
+                cv::Size((int) cap.get(CV_CAP_PROP_FRAME_WIDTH),
                      (int) cap.get(CV_CAP_PROP_FRAME_HEIGHT)));
                      
   cap.set(CV_CAP_PROP_POS_FRAMES, 0);
@@ -200,5 +205,4 @@ void help(char** argv)
 void version()
 {
 	printf("Version 0.0.1\n");
-
 } 

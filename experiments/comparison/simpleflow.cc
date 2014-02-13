@@ -1,6 +1,6 @@
 #include "simpleflow.h"
 
-void SimpleFlow::drawOptFlowMap(Mat &frame, int step)
+void SimpleFlow::drawOptFlowMap(cv::Mat &frame, int step)
 {
   double l_max;
 
@@ -8,7 +8,7 @@ void SimpleFlow::drawOptFlowMap(Mat &frame, int step)
   {
     for (int x = 0; x < flow.cols; x += step)
     {
-      const Point2f& fxy = flow.at<Point2f>(y, x);
+      const cv::Point2f& fxy = flow.at<cv::Point2f>(y, x);
       double l = sqrt(fxy.x*fxy.x + fxy.y*+fxy.y);                                                             
       if(l>l_max) l_max = l;
     }
@@ -18,15 +18,15 @@ void SimpleFlow::drawOptFlowMap(Mat &frame, int step)
 	{
     for(int x = 0; x < flow.cols; x += step)
     {
-      Point p = Point(x,y);
-      const Point2f& fxy = flow.at<Point2f>(y, x);
+      cv::Point p = cv::Point(x,y);
+      const cv::Point2f& fxy = flow.at<cv::Point2f>(y, x);
       double l = sqrt(fxy.x*fxy.x + fxy.y*fxy.y);
       
       if (l>0.0)
       {
         double scaleSize = 5.0 * l/l_max; 
 
-        Point p2 = Point(cvRound(x+fxy.x), cvRound(y+fxy.y));
+        cv::Point p2 = cv::Point(cvRound(x+fxy.x), cvRound(y+fxy.y));
         line(frame, p, p2, CV_RGB(0, 255, 0), 1, CV_AA);
 
         double angle;                                                                          
@@ -44,7 +44,7 @@ void SimpleFlow::drawOptFlowMap(Mat &frame, int step)
 	}
 }
 
-Mat SimpleFlow::calcOptFlowMap(Mat &frame, int layers, int averaging_block_size, int max_flow)
+cv::Mat SimpleFlow::calcOptFlowMap(cv::Mat &frame, int layers, int averaging_block_size, int max_flow)
 {
   nextImg = frame;
   if (prevImg.data)

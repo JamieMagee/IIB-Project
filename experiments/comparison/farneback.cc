@@ -1,6 +1,6 @@
 #include "farneback.h"
 
-void Farneback::drawOptFlowMap(Mat &frame, int step)
+void Farneback::drawOptFlowMap(cv::Mat &frame, int step)
 {
   double l_max;
 
@@ -8,7 +8,7 @@ void Farneback::drawOptFlowMap(Mat &frame, int step)
   {
     for (int x = 0; x < frame.cols; x += step)
     {
-      const Point2f& fxy = flow.at<Point2f>(y, x);
+      const cv::Point2f& fxy = flow.at<cv::Point2f>(y, x);
       double l = sqrt(fxy.x*fxy.x + fxy.y*+fxy.y);                                                             
       if(l>l_max) l_max = l;
     }
@@ -18,15 +18,15 @@ void Farneback::drawOptFlowMap(Mat &frame, int step)
 	{
     for(int x = 0; x < frame.cols; x += step)
     {
-      Point p = Point(x,y);
-      const Point2f& fxy = flow.at<Point2f>(y, x);
+      cv::Point p = cv::Point(x,y);
+      const cv::Point2f& fxy = flow.at<cv::Point2f>(y, x);
       double l = sqrt(fxy.x*fxy.x + fxy.y*fxy.y);
       
       if (l>0.0)
       {
         double scaleSize = 5.0 * l/l_max; 
 
-        Point p2 = Point(cvRound(x+fxy.x), cvRound(y+fxy.y));
+        cv::Point p2 = cv::Point(cvRound(x+fxy.x), cvRound(y+fxy.y));
         line(frame, p, p2, CV_RGB(0, 255, 0), 1, CV_AA);
 
         double angle;                                                                          
@@ -44,19 +44,19 @@ void Farneback::drawOptFlowMap(Mat &frame, int step)
 	}
 }
 
-void Farneback::drawOptFlowColour(Mat &frame)
+void Farneback::drawOptFlowColour(cv::Mat &frame)
 {
-  Mat HSV(frame.rows, frame.cols, CV_8UC3);
-  Mat _hsv[2];
-  Mat mag, ang, xy[2];
+  cv::Mat HSV(frame.rows, frame.cols, CV_8UC3);
+  cv::Mat _hsv[2];
+  cv::Mat mag, ang, xy[2];
   
   split(flow, xy);
   
   cartToPolar(xy[0], xy[1], mag, ang, true);
-  normalize(mag, mag, 0, 255, NORM_MINMAX);
+  normalize(mag, mag, 0, 255, cv::NORM_MINMAX);
   
   ang.convertTo(_hsv[0], CV_8UC1);
-  _hsv[1] = Mat::ones(ang.size(), CV_8UC1);
+  _hsv[1] = cv::Mat::ones(ang.size(), CV_8UC1);
   _hsv[1] = 255;
   mag.convertTo(_hsv[2], CV_8UC1);
   merge(_hsv, 3, HSV);
@@ -64,14 +64,15 @@ void Farneback::drawOptFlowColour(Mat &frame)
     
 }
 
-Mat Farneback::calcOptFlowMap(Mat frame, double pyr_scale, int levels, int winsize, int iterations, int poly_n, double poly_sigma, int flags)
+cv::Mat Farneback::calcOptFlowMap(cv::Mat frame, cv::FileStorage file, double pyr_scale, int levels, int winsize, int iterations, int poly_n, double poly_sigma, int flags)
 {
   cvtColor(frame, nextImg, CV_BGR2GRAY);
   
   if(prevImg.data)
   {
     calcOpticalFlowFarneback(prevImg, nextImg, flow, pyr_scale, levels, winsize, iterations, poly_n, poly_sigma, flags);
-    drawOptFlowColour(frame);
+    file << "Flow Field " << flow;
+    //drawOptFlowColour(frame);
     drawOptFlowMap(frame, 16);
   }
   std::swap(prevImg, nextImg);
