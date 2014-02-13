@@ -1,0 +1,346 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{quenot1998particle}{article}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Qu{\'e}not}{Q.}%
+     {Georges~M}{G.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pakleza}{P.}%
+     {Jaroslaw}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kowalewski}{K.}%
+     {Tomasz~A}{T.~A.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer}%
+  }
+  \strng{namehash}{QGMPJKTA1}
+  \strng{fullhash}{QGMPJKTA1}
+  \field{number}{3}
+  \field{pages}{177\bibrangedash 189}
+  \field{title}{Particle image velocimetry with optical flow}
+  \field{volume}{25}
+  \field{journaltitle}{Experiments in fluids}
+  \field{year}{1998}
+\endentry
+
+\entry{speckle}{inproceedings}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Bertrand}{B.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Meunier}{M.}%
+     {J}{J}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Doucet}{D.}%
+     {M}{M}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ferland}{F.}%
+     {G}{G}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {IEEE}%
+  }
+  \strng{namehash}{BM+1}
+  \strng{fullhash}{BMMJDMFG1}
+  \field{booktitle}{Ultrasonics Symposium, 1989. Proceedings., IEEE 1989}
+  \field{pages}{859\bibrangedash 863}
+  \field{title}{Ultrasonic biomechanical strain gauge based on speckle
+  tracking}
+  \field{year}{1989}
+\endentry
+
+\entry{harris2012characterizing}{article}{}
+  \name{author}{6}{}{%
+    {{}%
+     {Harris}{H.}%
+     {Andrew~R}{A.~R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Peter}{P.}%
+     {Loic}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bellis}{B.}%
+     {Julien}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Baum}{B.}%
+     {Buzz}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kabla}{K.}%
+     {Alexandre~J}{A.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Charras}{C.}%
+     {Guillaume~T}{G.~T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {National Acad Sciences}%
+  }
+  \strng{namehash}{HAR+1}
+  \strng{fullhash}{HARPLBJBBKAJCGT1}
+  \field{number}{41}
+  \field{pages}{16449\bibrangedash 16454}
+  \field{title}{Characterizing the mechanics of cultured cell monolayers}
+  \field{volume}{109}
+  \field{journaltitle}{Proceedings of the National Academy of Sciences}
+  \field{year}{2012}
+\endentry
+
+\entry{opencv}{misc}{}
+  \field{note}{[Online; accessed 15-December-2013]}
+  \field{title}{{OpenCV} {\textbar} {OpenCV}}
+  \verb{url}
+  \verb http://opencv.org/
+  \endverb
+\endentry
+
+\entry{uv4l}{misc}{}
+  \field{note}{[Online; accessed 15-December-2013]}
+  \field{title}{Linux Projects - Documentation}
+  \verb{url}
+  \verb http://www.linux-projects.org/modules/sections/index.php?op=viewarticle
+  \verb &artid=14
+  \endverb
+\endentry
+
+\entry{simplecv}{misc}{}
+  \field{note}{[Online; accessed 15-December-2013]}
+  \field{title}{SimpleCV}
+  \verb{url}
+  \verb http://simple.org/
+  \endverb
+\endentry
+
+\entry{openlabtools}{misc}{}
+  \field{note}{[Online; accessed 15-December-2013]}
+  \field{title}{OpenLabTools}
+  \verb{url}
+  \verb http://openlabtools.org/
+  \endverb
+\endentry
+
+\entry{lucas-kanade}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Lucas}{L.}%
+     {Bruce~D.}{B.~D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kanade}{K.}%
+     {Takeo}{T.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Morgan Kaufmann Publishers Inc.}%
+  }
+  \strng{namehash}{LBDKT1}
+  \strng{fullhash}{LBDKT1}
+  \field{booktitle}{Proceedings of the 7th International Joint Conference on
+  Artificial Intelligence - Volume 2}
+  \field{pages}{674\bibrangedash 679}
+  \field{series}{IJCAI'81}
+  \field{title}{An Iterative Image Registration Technique with an Application
+  to Stereo Vision}
+  \list{location}{1}{%
+    {Vancouver, BC, Canada}%
+  }
+  \field{year}{1981}
+  \warn{\item Can't use 'location' + 'address'}
+\endentry
+
+\entry{farneback}{inproceedings}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Farneb{\"a}ck}{F.}%
+     {Gunnar}{G.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FG1}
+  \strng{fullhash}{FG1}
+  \field{booktitle}{Proceedings of the 13th Scandinavian Conference on Image
+  Analysis}
+  \field{pages}{363\bibrangedash 370}
+  \field{series}{{LNCS} 2749}
+  \field{title}{Two-Frame Motion Estimation Based on Polynomial Expansion}
+  \list{location}{1}{%
+    {Gothenburg, Sweden}%
+  }
+  \field{year}{2003}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{simpleflow}{article}{}
+  \name{author}{4}{}{%
+    {{}%
+     {Tao}{T.}%
+     {Michael~W.}{M.~W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Bai}{B.}%
+     {Jiamin}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Kohli}{K.}%
+     {Pushmeet}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Paris}{P.}%
+     {Sylvain}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TMW+1}
+  \strng{fullhash}{TMWBJKPPS1}
+  \field{number}{2}
+  \field{title}{SimpleFlow: A Non-iterative, Sublinear Optical Flow Algorithm}
+  \verb{url}
+  \verb http://graphics.berkeley.edu/papers/Tao-SAN-2012-05/
+  \endverb
+  \field{volume}{31}
+  \field{journaltitle}{Computer Graphics Forum (Eurographics 2012)}
+  \field{month}{05}
+  \field{year}{2012}
+\endentry
+
+\entry{lucas}{thesis}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Lucas}{L.}%
+     {Bruce~D.}{B.~D.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LBD1}
+  \strng{fullhash}{LBD1}
+  \field{title}{Generalized Image Matching by the Method of Differences}
+  \list{institution}{1}{%
+    {Robotics Institute, Carnegie Mellon University}%
+  }
+  \field{type}{phdthesis}
+  \field{year}{1984}
+  \warn{\item Invalid format of field 'month'}
+\endentry
+
+\entry{harris1988combined}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Harris}{H.}%
+     {Chris}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Stephens}{S.}%
+     {Mike}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {Manchester, UK}%
+  }
+  \strng{namehash}{HCSM1}
+  \strng{fullhash}{HCSM1}
+  \field{booktitle}{Alvey vision conference}
+  \field{pages}{50}
+  \field{title}{A combined corner and edge detector.}
+  \field{volume}{15}
+  \field{year}{1988}
+\endentry
+
+\entry{shi1994good}{inproceedings}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Shi}{S.}%
+     {Jianbo}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tomasi}{T.}%
+     {Carlo}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {IEEE}%
+  }
+  \strng{namehash}{SJTC1}
+  \strng{fullhash}{SJTC1}
+  \field{booktitle}{Computer Vision and Pattern Recognition, 1994. Proceedings
+  CVPR'94., 1994 IEEE Computer Society Conference on}
+  \field{pages}{593\bibrangedash 600}
+  \field{title}{Good features to track}
+  \field{year}{1994}
+\endentry
+
+\entry{canny1986computational}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Canny}{C.}%
+     {John}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {IEEE}%
+  }
+  \strng{namehash}{CJ1}
+  \strng{fullhash}{CJ1}
+  \field{number}{6}
+  \field{pages}{679\bibrangedash 698}
+  \field{title}{A computational approach to edge detection}
+  \field{journaltitle}{Pattern Analysis and Machine Intelligence, IEEE
+  Transactions on}
+  \field{year}{1986}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

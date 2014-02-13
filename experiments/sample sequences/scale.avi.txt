@@ -1,0 +1,28 @@
+Output file scale.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.33s to process
+Frame 2 took 0.51s to process
+Frame 3 took 0.47s to process
+Frame 4 took 0.42s to process
+Frame 5 took 0.42s to process
+Frame 6 took 0.40s to process
+Frame 7 took 0.39s to process
+Frame 8 took 0.40s to process
+Frame 9 took 0.39s to process
+Frame 10 took 0.40s to process
+
+Processing complete for scale.lucas-kanade.avi
+Output file scale.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.12s to process
+Frame 2 took 3.13s to process
+Frame 3 took 2.88s to process
+Frame 4 took 2.74s to process
+Frame 5 took 2.70s to process
+Frame 6 took 2.50s to process
+Frame 7 took 2.20s to process
+Frame 8 took 2.02s to process
+Frame 9 took 1.97s to process
+Frame 10 took 1.73s to process
+
+Processing complete for scale.farneback.avi
