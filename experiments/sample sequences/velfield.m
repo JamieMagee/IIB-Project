@@ -22,10 +22,6 @@ for j = 1:m
     r0((n*(j-1) + 1):n*j,1) = j;
 end
 
-% Scale r0 by dx and dy
-r0(:,1) = r0(:,1);
-r0(:,2) = r0(:,2);
-
 % Calculate new positions for all points r0 after transformation under
 %   tform, which are r1.
 r1 = r0*tform.T;
