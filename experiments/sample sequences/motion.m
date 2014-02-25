@@ -1,84 +1,42 @@
-ceilfix = @(x)ceil(abs(x)).*sign(x);
 orig=checkerboard>.5;
 
 %Skew
-s = 0.5;
-A = cat(3, 255*ones(size(orig, 1))*.5, 255*ones(size(orig, 1))*.5);
-%A = cat(3, 255*ones(10)*.5, 255*ones(10)*.5);
-for i = 1:size(A, 1)
-   A(i,:,2) = -ceilfix((size(A, 1)+1)/2 - i)*s;
-end
-A = padarray(A,[200 200],0.5*255);
+tform=affine2d([1 0 0; .5 1 0; 0 0 1]);
+[skew, r0, r1] = velfield(orig, tform);
+%A = padarray(A,[200 200]);
 figure(1)
-subplot(1,2,1)
-imshow(A(:,:,1), [0 255]);
-title('Y-direction')
-subplot(1,2,2)
-imshow(A(:,:,2), [0 255]);
-title('X-direction')
+quiver(r0(:,:,1),flipud(r0(:,:,2)),skew(:,:,1),skew(:,:,2))
+axis('equal');
 
 %Scale
-A = cat(3, 255*ones(size(orig, 1))*.5, 255*ones(size(orig, 1))*.5);
-%A = cat(3, 255*ones(10)*.5, 255*ones(10)*.5);
-for i = 1:size(A, 2)
-   A(:,:,2) = ceilfix(sqrt(spiral(size(A,1)))/2);
-   A(:,:,1) = ceilfix(sqrt(spiral(size(A,1)))/2);
-end
-A = padarray(A,[200 200],0.5*255);
+tform=affine2d([2 0 0; 0 2 0; 0 0 1]);
+[scale, r0, r1] = velfield(orig, tform);
+%A = padarray(A,[200 200]);
 figure(2)
-subplot(1,2,1)
-imshow(A(:,:,1), [0 255]);
-title('Y-direction')
-subplot(1,2,2)
-imshow(A(:,:,2), [0 255]);
-title('X-direction')
+quiver(r0(:,:,1),flipud(r0(:,:,2)),scale(:,:,1),scale(:,:,2))
+axis('equal');
 
 %Rotate
-A = cat(3, 255*ones(size(orig, 1))*.5, 255*ones(size(orig, 1))*.5);
-%A = cat(3, 255*ones(10)*.5, 255*ones(10)*.5);
-theta = 1;
-for i = 1:size(A,2)
-    A(i,:,2) = ceilfix((size(A, 2)+1)/2 - i);
-    A(:,i,1) = -ceilfix((size(A, 2)+1)/2 - i);
-end
-A = padarray(A,[200 200],0.5*255);
+theta=1;
+tform=affine2d([cosd(theta) -sind(theta) 0; sind(theta) cosd(theta) 0; 0 0 1]);
+[rotate, r0, r1] = velfield(orig, tform);
+%A = padarray(A,[200 200]);
 figure(3)
-subplot(1,2,1)
-imshow(A(:,:,1), [0 255]);
-title('Y-direction')
-subplot(1,2,2)
-imshow(A(:,:,2), [0 255]);
-title('X-direction')
+quiver(r0(:,:,1),flipud(r0(:,:,2)),rotate(:,:,1),rotate(:,:,2))
+axis('equal');
 
 %Translate
-A = cat(3, 255*ones(size(orig, 1))*.5, 255*ones(size(orig, 1))*.5);
-%A = cat(3, 255*ones(10)*.5, 255*ones(10)*.5);
-theta = 1;
-for i = 1:size(A,2)
-    A(i,:,2) = 5;
-    A(:,i,1) = 5;
-end
-A = padarray(A,[200 200],0.5*255);
+tform=affine2d([1 0 0; 0 1 0; -5 5 1]);
+[translate, r0, r1] = velfield(orig, tform);
+%A = padarray(A,[200 200]);
 figure(4)
-subplot(1,2,1)
-imshow(A(:,:,1), [0 255]);
-title('Y-direction')
-subplot(1,2,2)
-imshow(A(:,:,2), [0 255]);
-title('X-direction')
+quiver(r0(:,:,1),r0(:,:,2),translate(:,:,1),translate(:,:,2))
+axis('equal');
 
 %Fracture
-A = cat(3, 255*ones(size(orig, 1))*.5, 255*ones(size(orig, 1))*.5);
-%A = cat(3, 255*ones(10)*.5, 255*ones(10)*.5);
-theta = 1;
-for i = 1:size(A,2)
-    A(:,i,1) = -sign(ceilfix((size(A, 2)+1)/2 - i))*5;
-end
-A = padarray(A,[200 200],0.5*255);
-figure(5)
-subplot(1,2,1)
-imshow(A(:,:,1), [0 255]);
-title('Y-direction')
-subplot(1,2,2)
-imshow(A(:,:,2), [0 255]);
-title('X-direction')
+%tform=affine2d([]);
+%[fracture, r0, r1] = velfield(orig, tform);
+%A = padarray(A,[200 200]);
+%figure(5)
+%quiver(r0(:,:,1),flipud(r0(:,:,2)),A(:,:,1),A(:,:,2))
+%axis('equal');

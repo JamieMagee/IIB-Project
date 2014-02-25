@@ -49,7 +49,7 @@ r1 = reshape(r1_, [n m 2]);
 %     end
 % end
 % figure; eval(['plot(',str,' ''k'');']);
-quiver(r0(:,:,1),flipud(r0(:,:,2)),V(:,:,1),V(:,:,2))
-axis('equal');
+%quiver(r0(:,:,1),flipud(r0(:,:,2)),V(:,:,1),V(:,:,2))
+%axis('equal');
 end
 
