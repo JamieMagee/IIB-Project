@@ -1,0 +1,153 @@
+Processing fracture.avi...
+Output file fracture.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.24s to process
+Frame 2 took 72.85s to process
+Frame 3 took 74.24s to process
+Frame 4 took 74.51s to process
+Frame 5 took 74.36s to process
+Frame 6 took 74.49s to process
+Frame 7 took 74.70s to process
+Frame 8 took 75.09s to process
+Frame 9 took 75.10s to process
+Frame 10 took 75.30s to process
+Frame 11 took 75.38s to process
+
+Processing complete for fracture.lucas-kanade.avi
+Output file fracture.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.13s to process
+Frame 2 took 6.38s to process
+Frame 3 took 6.38s to process
+Frame 4 took 6.35s to process
+Frame 5 took 6.37s to process
+Frame 6 took 6.39s to process
+Frame 7 took 6.34s to process
+Frame 8 took 6.35s to process
+Frame 9 took 6.30s to process
+Frame 10 took 6.33s to process
+Frame 11 took 6.46s to process
+
+Processing complete for fracture.farneback.avi
+Processing rotate.avi...
+Output file rotate.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.25s to process
+Frame 2 took 73.65s to process
+Frame 3 took 75.45s to process
+Frame 4 took 75.43s to process
+Frame 5 took 76.77s to process
+Frame 6 took 77.40s to process
+Frame 7 took 80.44s to process
+Frame 8 took 81.23s to process
+Frame 9 took 118.13s to process
+Frame 10 took 116.94s to process
+Frame 11 took 171.26s to process
+
+Processing complete for rotate.lucas-kanade.avi
+Output file rotate.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.13s to process
+Frame 2 took 6.55s to process
+Frame 3 took 6.52s to process
+Frame 4 took 6.50s to process
+Frame 5 took 6.48s to process
+Frame 6 took 6.50s to process
+Frame 7 took 6.70s to process
+Frame 8 took 6.56s to process
+Frame 9 took 6.54s to process
+Frame 10 took 6.78s to process
+Frame 11 took 7.04s to process
+
+Processing complete for rotate.farneback.avi
+Processing scale.avi...
+Output file scale.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.24s to process
+Frame 2 took 112.54s to process
+Frame 3 took 108.38s to process
+Frame 4 took 103.61s to process
+Frame 5 took 104.70s to process
+Frame 6 took 110.36s to process
+Frame 7 took 112.23s to process
+Frame 8 took 106.52s to process
+Frame 9 took 90.30s to process
+Frame 10 took 79.46s to process
+
+Processing complete for scale.lucas-kanade.avi
+Output file scale.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.13s to process
+Frame 2 took 6.52s to process
+Frame 3 took 6.38s to process
+Frame 4 took 6.53s to process
+Frame 5 took 6.58s to process
+Frame 6 took 6.82s to process
+Frame 7 took 6.92s to process
+Frame 8 took 7.04s to process
+Frame 9 took 7.08s to process
+Frame 10 took 7.05s to process
+
+Processing complete for scale.farneback.avi
+Processing skew.avi...
+Output file skew.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.25s to process
+Frame 2 took 97.48s to process
+Frame 3 took 105.45s to process
+Frame 4 took 110.22s to process
+Frame 5 took 111.76s to process
+Frame 6 took 109.04s to process
+Frame 7 took 108.46s to process
+Frame 8 took 115.08s to process
+Frame 9 took 121.35s to process
+Frame 10 took 135.91s to process
+Frame 11 took 122.38s to process
+
+Processing complete for skew.lucas-kanade.avi
+Output file skew.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.13s to process
+Frame 2 took 6.57s to process
+Frame 3 took 6.53s to process
+Frame 4 took 6.60s to process
+Frame 5 took 6.65s to process
+Frame 6 took 6.67s to process
+Frame 7 took 6.70s to process
+Frame 8 took 6.74s to process
+Frame 9 took 6.80s to process
+Frame 10 took 6.74s to process
+Frame 11 took 6.89s to process
+
+Processing complete for skew.farneback.avi
+Processing translate.avi...
+Output file translate.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.29s to process
+Frame 2 took 76.01s to process
+Frame 3 took 77.98s to process
+Frame 4 took 79.20s to process
+Frame 5 took 79.24s to process
+Frame 6 took 79.03s to process
+Frame 7 took 81.01s to process
+Frame 8 took 80.41s to process
+Frame 9 took 82.38s to process
+Frame 10 took 81.15s to process
+Frame 11 took 81.53s to process
+
+Processing complete for translate.lucas-kanade.avi
+Output file translate.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.14s to process
+Frame 2 took 6.52s to process
+Frame 3 took 6.59s to process
+Frame 4 took 6.61s to process
+Frame 5 took 6.75s to process
+Frame 6 took 6.93s to process
+Frame 7 took 7.00s to process
+Frame 8 took 7.06s to process
+Frame 9 took 7.10s to process
+Frame 10 took 7.31s to process
+Frame 11 took 7.34s to process
+
+Processing complete for translate.farneback.avi

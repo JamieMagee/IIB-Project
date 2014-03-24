@@ -1,0 +1,155 @@
+Processing fracture8.avi...
+Output file fracture8.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.01s to process
+Frame 2 took 0.11s to process
+Frame 3 took 0.10s to process
+Frame 4 took 0.10s to process
+Frame 5 took 0.11s to process
+Frame 6 took 0.10s to process
+Frame 7 took 0.10s to process
+Frame 8 took 0.11s to process
+Frame 9 took 0.10s to process
+Frame 10 took 0.10s to process
+Frame 11 took 0.11s to process
+Frame 12 took 0.10s to process
+
+Processing complete for fracture8.farneback.avi
+Output file fracture8.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.00s to process
+Frame 2 took 4.28s to process
+Frame 3 took 4.32s to process
+Frame 4 took 4.29s to process
+Frame 5 took 4.33s to process
+Frame 6 took 4.29s to process
+Frame 7 took 4.32s to process
+Frame 8 took 4.30s to process
+Frame 9 took 4.33s to process
+Frame 10 took 4.29s to process
+Frame 11 took 4.33s to process
+Frame 12 took 4.29s to process
+
+Processing complete for fracture8.simpleflow.avi
+Processing rotate8.avi...
+Output file rotate8.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.01s to process
+Frame 2 took 0.10s to process
+Frame 3 took 0.10s to process
+Frame 4 took 0.10s to process
+Frame 5 took 0.10s to process
+Frame 6 took 0.10s to process
+Frame 7 took 0.10s to process
+Frame 8 took 0.10s to process
+Frame 9 took 0.09s to process
+Frame 10 took 0.11s to process
+Frame 11 took 0.11s to process
+
+Processing complete for rotate8.farneback.avi
+Output file rotate8.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.01s to process
+Frame 2 took 4.23s to process
+Frame 3 took 4.23s to process
+Frame 4 took 4.30s to process
+Frame 5 took 4.32s to process
+Frame 6 took 4.30s to process
+Frame 7 took 4.32s to process
+Frame 8 took 4.29s to process
+Frame 9 took 4.32s to process
+Frame 10 took 4.30s to process
+Frame 11 took 4.32s to process
+
+Processing complete for rotate8.simpleflow.avi
+Processing scale8.avi...
+Output file scale8.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.00s to process
+Frame 2 took 0.10s to process
+Frame 3 took 0.09s to process
+Frame 4 took 0.09s to process
+Frame 5 took 0.08s to process
+Frame 6 took 0.08s to process
+Frame 7 took 0.08s to process
+Frame 8 took 0.07s to process
+Frame 9 took 0.08s to process
+Frame 10 took 0.08s to process
+
+Processing complete for scale8.farneback.avi
+Output file scale8.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.00s to process
+Frame 2 took 4.24s to process
+Frame 3 took 4.25s to process
+Frame 4 took 4.24s to process
+Frame 5 took 4.19s to process
+Frame 6 took 4.22s to process
+Frame 7 took 4.26s to process
+Frame 8 took 4.25s to process
+Frame 9 took 4.37s to process
+Frame 10 took 4.11s to process
+
+Processing complete for scale8.simpleflow.avi
+Processing skew8.avi...
+Output file skew8.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.01s to process
+Frame 2 took 0.10s to process
+Frame 3 took 0.10s to process
+Frame 4 took 0.10s to process
+Frame 5 took 0.10s to process
+Frame 6 took 0.10s to process
+Frame 7 took 0.09s to process
+Frame 8 took 0.10s to process
+Frame 9 took 0.09s to process
+Frame 10 took 0.10s to process
+Frame 11 took 0.04s to process
+
+Processing complete for skew8.farneback.avi
+Output file skew8.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.00s to process
+Frame 2 took 4.27s to process
+Frame 3 took 4.27s to process
+Frame 4 took 4.28s to process
+Frame 5 took 4.27s to process
+Frame 6 took 4.28s to process
+Frame 7 took 4.27s to process
+Frame 8 took 4.27s to process
+Frame 9 took 4.27s to process
+Frame 10 took 4.10s to process
+Frame 11 took 4.10s to process
+
+Processing complete for skew8.simpleflow.avi
+Processing translate8.avi...
+Output file translate8.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.01s to process
+Frame 2 took 0.11s to process
+Frame 3 took 0.11s to process
+Frame 4 took 0.11s to process
+Frame 5 took 0.11s to process
+Frame 6 took 0.10s to process
+Frame 7 took 0.11s to process
+Frame 8 took 0.11s to process
+Frame 9 took 0.11s to process
+Frame 10 took 0.11s to process
+Frame 11 took 0.11s to process
+
+Processing complete for translate8.farneback.avi
+Output file translate8.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.00s to process
+Frame 2 took 4.27s to process
+Frame 3 took 4.27s to process
+Frame 4 took 4.26s to process
+Frame 5 took 4.27s to process
+Frame 6 took 4.28s to process
+Frame 7 took 4.26s to process
+Frame 8 took 4.27s to process
+Frame 9 took 4.26s to process
+Frame 10 took 4.26s to process
+Frame 11 took 4.26s to process
+
+Processing complete for translate8.simpleflow.avi

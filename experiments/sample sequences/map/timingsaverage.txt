@@ -1,0 +1,30 @@
+Output file fracture.lucas-kanade.avi using Lucas-Kanade optical flow
+74.60s average per frame
+
+Output file fracture.farneback.avi using Farneback optical flow
+6.37s average per frame
+
+Output file rotate.lucas-kanade.avi using Lucas-Kanade optical flow
+94.67s average per frame
+
+Output file rotate.farneback.avi using Farneback optical flow
+6.62s average per frame
+
+Output file scale.lucas-kanade.avi using Lucas-Kanade optical flow
+103.12s average per frame
+
+Output file scale.farneback.avi using Farneback optical flow
+6.77s average per frame
+
+Output file skew.lucas-kanade.avi using Lucas-Kanade optical flow
+113.71s average per frame
+
+Output file skew.farneback.avi using Farneback optical flow
+6.69s average per frame
+
+Output file translate.lucas-kanade.avi using Lucas-Kanade optical flow
+79.79s average per frame
+
+Output file translate.farneback.avi using Farneback optical flow
+6.92s average per frame
+

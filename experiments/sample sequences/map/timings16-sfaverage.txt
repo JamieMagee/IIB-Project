@@ -1,0 +1,30 @@
+Output file fracture16.farneback.avi using Farneback optical flow
+0.02s average per frame
+
+Output file fracture16.simpleflow.avi using SimpleFlow optical flow
+1.09s average per frame
+
+Output file rotate16.farneback.avi using Farneback optical flow
+0.02s average per frame
+
+Output file rotate16.simpleflow.avi using SimpleFlow optical flow
+1.08s average per frame
+
+Output file scale16.farneback.avi using Farneback optical flow
+0.02s average per frame
+
+Output file scale16.simpleflow.avi using SimpleFlow optical flow
+1.09s average per frame
+
+Output file skew16.farneback.avi using Farneback optical flow
+0.02s average per frame
+
+Output file skew16.simpleflow.avi using SimpleFlow optical flow
+1.08s average per frame
+
+Output file translate16.farneback.avi using Farneback optical flow
+0.02s average per frame
+
+Output file translate16.simpleflow.avi using SimpleFlow optical flow
+1.08s average per frame
+

@@ -1,5 +1,0 @@
-files = dir('*.txt');
-for file = files'
-    flow = load(file.name);
-    reshape(flow,sqrt
-end

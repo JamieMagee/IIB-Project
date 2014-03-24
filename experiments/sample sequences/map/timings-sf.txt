@@ -1,0 +1,79 @@
+Processing fracture.avi...
+Output file fracture.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.12s to process
+Frame 2 took 267.48s to process
+Frame 3 took 268.26s to process
+Frame 4 took 267.35s to process
+Frame 5 took 268.02s to process
+Frame 6 took 267.70s to process
+Frame 7 took 267.62s to process
+Frame 8 took 267.44s to process
+Frame 9 took 267.68s to process
+Frame 10 took 267.86s to process
+Frame 11 took 267.58s to process
+
+Processing complete for fracture.simpleflow.avi
+Processing rotate.avi...
+Output file rotate.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.12s to process
+Frame 2 took 268.09s to process
+Frame 3 took 267.90s to process
+Frame 4 took 267.41s to process
+Frame 5 took 268.02s to process
+Frame 6 took 267.46s to process
+Frame 7 took 267.27s to process
+Frame 8 took 267.72s to process
+Frame 9 took 267.41s to process
+Frame 10 took 268.02s to process
+Frame 11 took 266.63s to process
+
+Processing complete for rotate.simpleflow.avi
+Processing scale.avi...
+Output file scale.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.12s to process
+Frame 2 took 268.50s to process
+Frame 3 took 271.17s to process
+Frame 4 took 270.60s to process
+Frame 5 took 271.84s to process
+Frame 6 took 272.39s to process
+Frame 7 took 275.39s to process
+Frame 8 took 274.92s to process
+Frame 9 took 276.22s to process
+Frame 10 took 276.90s to process
+
+Processing complete for scale.simpleflow.avi
+Processing skew.avi...
+Output file skew.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.12s to process
+Frame 2 took 268.69s to process
+Frame 3 took 272.44s to process
+Frame 4 took 270.68s to process
+Frame 5 took 269.13s to process
+Frame 6 took 269.50s to process
+Frame 7 took 269.51s to process
+Frame 8 took 269.22s to process
+Frame 9 took 270.09s to process
+Frame 10 took 269.40s to process
+Frame 11 took 266.56s to process
+
+Processing complete for skew.simpleflow.avi
+Processing translate.avi...
+Output file translate.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.16s to process
+Frame 2 took 271.42s to process
+Frame 3 took 269.66s to process
+Frame 4 took 268.61s to process
+Frame 5 took 269.66s to process
+Frame 6 took 269.21s to process
+Frame 7 took 268.52s to process
+Frame 8 took 268.50s to process
+Frame 9 took 268.33s to process
+Frame 10 took 268.02s to process
+Frame 11 took 267.86s to process
+
+Processing complete for translate.simpleflow.avi

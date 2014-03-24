@@ -1,0 +1,41 @@
+
+subsampling =
+
+     8
+
+rotate.lucas-kanade.avi.txt
+   84.3671
+
+rotate8.farneback.avi.txt
+  366.8571
+
+rotate8.simpleflow.avi.txt
+    1.1271
+
+scale.lucas-kanade.avi.txt
+   3.7092e+03
+
+scale8.farneback.avi.txt
+   8.5868e+03
+
+scale8.simpleflow.avi.txt
+        7400
+
+skew.lucas-kanade.avi.txt
+  432.2600
+
+skew8.farneback.avi.txt
+   74.5300
+
+skew8.simpleflow.avi.txt
+     0
+
+translate.lucas-kanade.avi.txt
+   1.1011e+04
+
+translate8.farneback.avi.txt
+   1.4692e+03
+
+translate8.simpleflow.avi.txt
+     0
+

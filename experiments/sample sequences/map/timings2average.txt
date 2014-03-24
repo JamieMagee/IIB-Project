@@ -1,0 +1,15 @@
+Output file fracture.lucas-kanade.avi using Lucas-Kanade optical flow
+18.73s average per frame
+
+Output file rotate.lucas-kanade.avi using Lucas-Kanade optical flow
+23.80s average per frame
+
+Output file scale.lucas-kanade.avi using Lucas-Kanade optical flow
+26.02s average per frame
+
+Output file skew.lucas-kanade.avi using Lucas-Kanade optical flow
+28.57s average per frame
+
+Output file translate.lucas-kanade.avi using Lucas-Kanade optical flow
+20.29s average per frame
+

@@ -1,0 +1,155 @@
+Processing fracture2.avi...
+Output file fracture2.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.04s to process
+Frame 2 took 1.63s to process
+Frame 3 took 1.60s to process
+Frame 4 took 1.62s to process
+Frame 5 took 1.61s to process
+Frame 6 took 1.61s to process
+Frame 7 took 1.60s to process
+Frame 8 took 1.62s to process
+Frame 9 took 1.60s to process
+Frame 10 took 1.63s to process
+Frame 11 took 1.61s to process
+Frame 12 took 1.63s to process
+
+Processing complete for fracture2.farneback.avi
+Output file fracture2.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.03s to process
+Frame 2 took 67.17s to process
+Frame 3 took 66.97s to process
+Frame 4 took 66.64s to process
+Frame 5 took 67.53s to process
+Frame 6 took 67.35s to process
+Frame 7 took 67.21s to process
+Frame 8 took 67.44s to process
+Frame 9 took 67.19s to process
+Frame 10 took 67.41s to process
+Frame 11 took 66.76s to process
+Frame 12 took 67.35s to process
+
+Processing complete for fracture2.simpleflow.avi
+Processing rotate2.avi...
+Output file rotate2.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.04s to process
+Frame 2 took 1.61s to process
+Frame 3 took 1.61s to process
+Frame 4 took 1.63s to process
+Frame 5 took 1.62s to process
+Frame 6 took 1.64s to process
+Frame 7 took 1.63s to process
+Frame 8 took 1.64s to process
+Frame 9 took 1.64s to process
+Frame 10 took 1.66s to process
+Frame 11 took 1.69s to process
+
+Processing complete for rotate2.farneback.avi
+Output file rotate2.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.03s to process
+Frame 2 took 67.02s to process
+Frame 3 took 66.67s to process
+Frame 4 took 66.68s to process
+Frame 5 took 66.89s to process
+Frame 6 took 67.00s to process
+Frame 7 took 66.94s to process
+Frame 8 took 67.04s to process
+Frame 9 took 66.97s to process
+Frame 10 took 66.67s to process
+Frame 11 took 66.39s to process
+
+Processing complete for rotate2.simpleflow.avi
+Processing scale2.avi...
+Output file scale2.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.04s to process
+Frame 2 took 1.65s to process
+Frame 3 took 1.63s to process
+Frame 4 took 1.65s to process
+Frame 5 took 1.66s to process
+Frame 6 took 1.68s to process
+Frame 7 took 1.65s to process
+Frame 8 took 1.60s to process
+Frame 9 took 1.54s to process
+Frame 10 took 1.48s to process
+
+Processing complete for scale2.farneback.avi
+Output file scale2.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.03s to process
+Frame 2 took 63.94s to process
+Frame 3 took 67.39s to process
+Frame 4 took 67.48s to process
+Frame 5 took 67.27s to process
+Frame 6 took 67.63s to process
+Frame 7 took 69.44s to process
+Frame 8 took 69.23s to process
+Frame 9 took 69.78s to process
+Frame 10 took 69.78s to process
+
+Processing complete for scale2.simpleflow.avi
+Processing skew2.avi...
+Output file skew2.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.03s to process
+Frame 2 took 1.61s to process
+Frame 3 took 1.60s to process
+Frame 4 took 1.60s to process
+Frame 5 took 1.61s to process
+Frame 6 took 1.62s to process
+Frame 7 took 1.60s to process
+Frame 8 took 1.62s to process
+Frame 9 took 1.63s to process
+Frame 10 took 1.59s to process
+Frame 11 took 1.59s to process
+
+Processing complete for skew2.farneback.avi
+Output file skew2.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.03s to process
+Frame 2 took 67.50s to process
+Frame 3 took 67.21s to process
+Frame 4 took 67.03s to process
+Frame 5 took 67.21s to process
+Frame 6 took 67.36s to process
+Frame 7 took 67.32s to process
+Frame 8 took 67.45s to process
+Frame 9 took 67.38s to process
+Frame 10 took 67.59s to process
+Frame 11 took 66.43s to process
+
+Processing complete for skew2.simpleflow.avi
+Processing translate2.avi...
+Output file translate2.farneback.avi using Farneback optical flow
+
+Frame 1 took 0.04s to process
+Frame 2 took 1.59s to process
+Frame 3 took 1.63s to process
+Frame 4 took 1.65s to process
+Frame 5 took 1.65s to process
+Frame 6 took 1.68s to process
+Frame 7 took 1.71s to process
+Frame 8 took 1.73s to process
+Frame 9 took 1.73s to process
+Frame 10 took 1.78s to process
+Frame 11 took 1.79s to process
+
+Processing complete for translate2.farneback.avi
+Output file translate2.simpleflow.avi using SimpleFlow optical flow
+
+Frame 1 took 0.04s to process
+Frame 2 took 66.63s to process
+Frame 3 took 66.84s to process
+Frame 4 took 66.88s to process
+Frame 5 took 66.95s to process
+Frame 6 took 67.18s to process
+Frame 7 took 66.98s to process
+Frame 8 took 67.21s to process
+Frame 9 took 66.97s to process
+Frame 10 took 67.26s to process
+Frame 11 took 67.16s to process
+
+Processing complete for translate2.simpleflow.avi

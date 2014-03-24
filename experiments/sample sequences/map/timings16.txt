@@ -1,0 +1,79 @@
+Processing fracture.avi...
+Output file fracture.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.14s to process
+Frame 2 took 0.48s to process
+Frame 3 took 0.50s to process
+Frame 4 took 0.49s to process
+Frame 5 took 0.49s to process
+Frame 6 took 0.49s to process
+Frame 7 took 0.50s to process
+Frame 8 took 0.50s to process
+Frame 9 took 0.49s to process
+Frame 10 took 0.49s to process
+Frame 11 took 0.50s to process
+
+Processing complete for fracture.lucas-kanade.avi
+Processing rotate.avi...
+Output file rotate.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.13s to process
+Frame 2 took 0.49s to process
+Frame 3 took 0.49s to process
+Frame 4 took 0.49s to process
+Frame 5 took 0.50s to process
+Frame 6 took 0.50s to process
+Frame 7 took 0.50s to process
+Frame 8 took 0.51s to process
+Frame 9 took 0.65s to process
+Frame 10 took 0.62s to process
+Frame 11 took 0.83s to process
+
+Processing complete for rotate.lucas-kanade.avi
+Processing scale.avi...
+Output file scale.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.14s to process
+Frame 2 took 0.66s to process
+Frame 3 took 0.63s to process
+Frame 4 took 0.61s to process
+Frame 5 took 0.61s to process
+Frame 6 took 0.63s to process
+Frame 7 took 0.63s to process
+Frame 8 took 0.61s to process
+Frame 9 took 0.53s to process
+Frame 10 took 0.49s to process
+
+Processing complete for scale.lucas-kanade.avi
+Processing skew.avi...
+Output file skew.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.14s to process
+Frame 2 took 0.60s to process
+Frame 3 took 0.61s to process
+Frame 4 took 0.64s to process
+Frame 5 took 0.64s to process
+Frame 6 took 0.63s to process
+Frame 7 took 0.62s to process
+Frame 8 took 0.64s to process
+Frame 9 took 0.68s to process
+Frame 10 took 0.72s to process
+Frame 11 took 0.67s to process
+
+Processing complete for skew.lucas-kanade.avi
+Processing translate.avi...
+Output file translate.lucas-kanade.avi using Lucas-Kanade optical flow
+
+Frame 1 took 0.13s to process
+Frame 2 took 0.50s to process
+Frame 3 took 0.51s to process
+Frame 4 took 0.51s to process
+Frame 5 took 0.51s to process
+Frame 6 took 0.49s to process
+Frame 7 took 0.51s to process
+Frame 8 took 0.51s to process
+Frame 9 took 0.51s to process
+Frame 10 took 0.50s to process
+Frame 11 took 0.52s to process
+
+Processing complete for translate.lucas-kanade.avi

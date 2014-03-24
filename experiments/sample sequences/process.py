@@ -1,17 +1,25 @@
 import re
-import glob
+import os
+import fnmatch
 from operator import sub
 from datetime import datetime
+from math import isnan
 
 start = datetime.now()
-for fname in glob.glob("*.yml"):
+
+matches = []
+for root, dirnames, filenames in os.walk('map'):
+    for filename in fnmatch.filter(filenames, '*.yml'):
+        matches.append(os.path.join(root, filename))
+
+for fname in matches:
     print('Processing '+fname)
     with open(fname, "r") as myfile:
         data, frames, nextpts, prevpts = [], [], [], []
         data = ''.join([line.replace('\n', '').replace(" ", "") for line in myfile.readlines()])
         for val in re.findall(r'\[([^]]*)\]', data):
-            frames.append([round(float(x), 2) for x in val.split(',')])
-        if "farneback" not in fname:
+            frames.append([round(float(x), 2) if x != '.Nan' else 0 for x in val.split(',')])
+        if "lucas-kanade" in fname:
             for i in range(0, len(frames), 2):
                 nextpts.append(frames[i])
                 prevpts.append(frames[i+1])
