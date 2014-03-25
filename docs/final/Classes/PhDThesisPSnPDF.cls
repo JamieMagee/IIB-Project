@@ -592,6 +592,36 @@ font in the preamble.tex file by specifying `customfont' in the class options}
 \end{singlespace}
 }
 
+\renewcommand{\maketitle}{
+
+  % To compute the free vertical space in Title page
+  \computeTitlePageSpacing
+  
+  \begin{singlespace}
+  \begin{center}
+    \begin{textblock*}{85mm}(62.5mm ,100mm)
+      \vspace*{7mm}      
+      
+      {\bfseries{\@title} \par}
+      \vspace*{1ex}
+      
+      by
+      \vspace*{1ex}
+      
+      {\bfseries{\@author} \par}
+      \vspace*{1ex}
+      
+      Fourth-year undergraduate project \\
+      in Group F, 2013/2014
+      \vspace*{7mm}
+    \end{textblock*}
+  \end{center}
+  \end{singlespace}
+  \null
+  \newpage
+  
+}
+
 
 % ********************************* Dedication *********************************
 % The dedication environment makes sure the dedication gets its
