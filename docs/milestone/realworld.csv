@@ -1,3 +1,4 @@
-  a,    LucasKanade, Farneback, SimpleFlow
-  0.3, 1.39,         3.45,       418
-  0.7, 2.4,         6.65,       718
+,Processing Time (s),,
+Frame Size (MP),Lucas-Kanade, Farneback, SimpleFlow
+0.3,1.39,3.45,418
+0.7,2.4,6.65,718

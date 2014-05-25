@@ -1,0 +1,205 @@
+\chapter{Theory and design of experiment}
+\label{sec:theory}
+
+\ifpdf
+    \graphicspath{{Section2/Figs/Raster/}{Section2/Figs/PDF/}{Section2/Figs/}}
+\else
+    \graphicspath{{Section2/Figs/Vector/}{Section2/Figs/}}
+\fi
+
+\section{Optical Flow}
+
+Optical flow methods attempt to calculate the motion between two images, or video frames, taken at time $t$ and $t + \Delta t$ for every pixel in the images. For a 2D case a pixel at location $(x, y, t)$ with intensity $I(x, y, t)$ will have moved by $\Delta x, \Delta y$ and $\Delta t$ between the two image frames and therefore we can impose the constraint on the intensity:
+
+\begin{align*}
+  I(x, y, t) = I(\Delta x, \Delta y, \Delta t)
+\end{align*}
+
+If we assume that the movement is small, we can perform a Taylor series expansion on the constraint:
+
+\begin{align*}
+  I(\Delta x, \Delta y, \Delta t) = I(x, y, t) + \frac{\partial I}{\partial x}\Delta x+\frac{\partial I}{\partial y}\Delta y+\frac{\partial I}{\partial t}\Delta t + \dots
+\end{align*}
+
+Ignoring higher order terms, and rearranging, it follows that
+
+\begin{align*}
+  \frac{\partial I}{\partial x}\Delta x+\frac{\partial I}{\partial y}\Delta y+\frac{\partial I}{\partial t}\Delta t = 0
+\end{align*}
+
+and dividing through by $\Delta t$ we obtain
+
+\begin{align*}
+  \frac{\partial I}{\partial x}\frac{\Delta x}{\Delta t}+\frac{\partial I}{\partial y}\frac{\Delta y}{\Delta t}+\frac{\partial I}{\partial t}\frac{\Delta t}{\Delta t} = 0
+\end{align*}
+
+which simplifies to
+
+\begin{align*}
+  \frac{\partial I}{\partial x}V_x+\frac{\partial I}{\partial y}V_y+\frac{\partial I}{\partial t} = 0
+\end{align*}
+
+where $V_x,V_y$ are the $x$ and $y$ components of the velocity or optical flow of $I(x,y,t)$ and $\tfrac{\partial I}{\partial x}$, $\tfrac{\partial I}{\partial y}$ and $\tfrac{\partial I}{\partial t}$ are the derivatives of the image at $(x,y,t)$ in the corresponding directions. We can rearrange this to
+
+\begin{align*}
+  I_xV_x+I_yV_y=-I_t
+\end{align*}
+
+where $I_x$, $I_y$ and $I_t$ are $\tfrac{\partial I}{\partial x}$, $\tfrac{\partial I}{\partial y}$ and $\tfrac{\partial I}{\partial t}$ respectively. This is an equation in two unknowns, $I$ and $V$, and therefore we cannot solve it in its current form. We require additional equations which introduce an additional constraint. All optical flow methods introduce an additional constrain to enable estimation of the optical flow.
+
+\subsection{Lucas-Kanade}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+  \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
+  \draw[->] (0,-1.2) -- (0,2) node[above] {$f(x)$};
+  \draw[color=blue,domain=0:3] plot (\x,{sin((\x) r)}) node[right] {$f(x)$};
+  \draw[color=red,domain=1:4] plot (\x,{sin((\x-1) r)}) node[right] {$g(x)$};
+  \end{tikzpicture}
+  \caption{The 1-D case}
+  \label{fig:lucas-kanade}
+\end{figure}
+
+The Lucas-Kanade~\cite{lucas-kanade} method is a well established, sparse optical flow method. In the one dimensional case, illustrated in Figure~\ref{fig:lucas-kanade}, it can be thought of as finding the horizontal displacement, $\delta$, between the curves $F(x)$ and $G(x)=F(x+\delta)$. If we assume that $\delta$ is small and that $F(x)$ is approximately linear in the area of $x$ then we can say:
+
+\begin{align*}
+F'(x) &\approx \frac{F(x+\delta)-F(x)}{\delta} \\
+\therefore F(x + \delta) &\approx F(x) + \delta F'(x) 
+\end{align*}
+
+Therefore, to find the $\delta$ which minimises the $L_2$ norm we measure the difference between the curves as
+
+\begin{align*}
+E = \sum_{x}\left[F(x + \delta) - G(x)\right]^2
+\end{align*}
+
+and then to minimise the error with respect to $\delta$, we set
+
+\begin{align*}
+  0 &= \frac{\partial E}{\partial \delta} \\
+  &\approx \frac{\partial}{\partial \delta}\sum_{x}\left[F(x) + \delta F'(x) - G(x)\right]^2 \\
+  &= \sum_{x}2F'(x)\left[F(x) + \delta F'(x) - G(x)\right]
+\end{align*}
+
+from which
+
+\begin{align*}
+  \delta \approx \frac{\sum_{x}F'(x)\left[G(x) - F(x)\right]}{\sum_{x}F'(x)^2}
+\end{align*}
+
+We can generalise this to n-dimensions as follows. We still wish to minimise the $L_2$ norm as a measure of error
+
+\begin{align*}
+  E = \sum_{x \in \mathbb{R}}\left[F(x + \delta) - G(x)\right]^2
+\end{align*}
+
+where x and $\delta$ are n-dimensional row vectors. We make a linear approximation as before
+
+\begin{align*}
+  F(x + \delta) \approx F(x) + \delta\frac{\partial}{\partial x}F(x)
+\end{align*}
+
+Where
+
+\begin{align*}
+  \frac{\partial}{\partial x} = \left[\frac{\partial}{\partial x_1} \frac{\partial}{\partial x_2} \dots \frac{\partial}{\partial x_n}\right]^T
+\end{align*}
+
+and as before to minimise the error with respect to $\delta$, we set
+
+\begin{align*}
+0 &= \frac{\partial E}{\partial \delta} \\
+&\approx \frac{\partial}{\partial \delta}\sum_{x}\left[F(x) + \delta \frac{\partial F}{\partial x} - G(x)\right]^2 \\
+&= \sum_{x}2\frac{\partial F}{\partial x}\left[F(x) + \delta \frac{\partial F}{\partial x} - G(x)\right]
+\end{align*}
+
+from which
+
+\begin{align*}
+  \delta = \left[\sum_{x}\left(\frac{\partial F}{\partial x}\right)^T\left[G(x) - F(x)\right]\right]\left[\sum_{x}\left(\frac{\partial F}{\partial x}\right)^T\left(\frac{\partial F}{\partial x}\right)\right]^{-1}
+\end{align*}
+
+\subsection{Farnebäck}
+
+Farnebäck optical flow~\citep{farneback} is classified as a dense optical flow method. Using this method each neighbourhood of pixels is approximated by a quadratic polynomial of the form:
+
+\begin{align*}
+f(x) \approx x^TAx+b^tx+c
+\end{align*}
+
+In the one dimensional case is shown in figure~\ref{fig:farneback}.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+  \draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
+  \draw[->] (0,-1.2) -- (0,2) node[above] {$f(x)$};
+  \draw[color=blue,domain=0:3] plot (\x,{sin((\x) r)}) node[right] {$f(x)$};
+  \draw [->] (.5,0) -- (.5,.5); 
+  \draw [->] (1,0) -- (1,.85); 
+  \draw [->] (1.5,0) -- (1.5,1); 
+  \draw [->] (2,0) -- (2,.9);
+  \draw [->] (2.5,0) -- (2.5,.6); 
+  \end{tikzpicture}
+  \caption{The 1-D case}
+  \label{fig:farneback}
+\end{figure}
+
+For the general case, if we consider the polynomial $f_1(x) \approx x^TA_1x+b_1^Tx+c_1$ which is shifted by a displacement $\delta$
+
+\begin{align*}
+f_2(x) &= f_1(x-\delta) \\
+&= (x-\delta)^T A_1 (x-\delta) + b_1^T (x-\delta) + c_1 \\
+&= x^TA_1x + (b_1 - 2A_1\delta)^Tx + \delta^TA_1\delta -b_1^T\delta + c_1 \\
+&\equiv x^TA_2x + b_2^Tx + c_2
+\end{align*}
+
+We can therefore equate the coefficients of $f_1(x)$ and $f_2(x)$ which yields
+
+\begin{align*}
+A_2 &= A_1 \\
+b_2 &= b_1 - 2A_1\delta \\
+c_2 &= \delta^TA_1\delta - b_1^T\delta + c_1
+\end{align*}
+
+Thus if $A_1$ is non-singular we can solve for the translation $\delta$
+
+\begin{align*}
+b_2 &= b_1 - 2A_1\delta \\
+2A_1\delta &= -(b_2-b_1) \\
+\delta &= -\frac{1}{2}A_1^{-1}(b_2-b_1)
+\end{align*}
+
+\subsection{SimpleFlow}
+
+SimpleFlow is a combination of both dense and sparse optical flow, it only runs a full flow estimation at a few key pixels, and linearly interpolates the rest of the flow, thus it is classified as \textit{semi-dense} optical flow~\citep{simpleflow}. At the key pixels a likelihood model is used, that is, we seek flow vectors $(u,v)$ such that $F_t(x,y)$ and $F_{t+1}(x+u,y+v)$ are similar. This is modelled by the energy term:
+
+\begin{align*}
+e(x,y,u,v) = {\lVert F_t(x,y)+F_{t+1}(x+u,y+v)\rVert}^2 
+\end{align*}
+
+that corresponds to the likelihood probability $p \propto \exp(-e)$~\citep{rosenberg1997representing}
+
+
+SimpleFlow assumes that the flow is locally smooth, however it does not rely on a simple pairwise term such as $\left|\left|(u_1,v_1)-(u_2,v_2)\right|\right|^2$ as is often used as pairwise terms link flow estimates at several pixels therefore making optimization problem harder to solve. Instead SimpleFlow requires the flow vector $(u_0,v_0)$ at pixel $(x_0, y_0)$ to not only be a good estimate for the optical flow of $(x_0, y_0)$, but at other pixels in the local neighbourhood, $\mathcal{N}_0$. This can be expressed as
+
+\begin{align*}
+  (u_0,v_0) = \arg\min_{(u,v)\in\Omega}\prod_{(x,y)\in\mathcal{N}_0}p(x,y,u,v)
+\end{align*}
+
+where $\Omega$ is the set of all possible $(u,v)$ vectors considered. This produces a smoother estimate of the optical flow of $(x, y)$. We can better understand this behaviour in the negative log-likelihood (or energy cost) domain where we try to find the lowest cost flow vector for the pixel $(x_0,y_0)$
+
+\begin{align*}
+  (u_0,v_0) = \arg\min_{(u,v)\in\Omega} \sum_{(x,y)\in\mathcal{N}_0} e(x,y,u,v)
+\end{align*}
+
+The smoothness prior amounts to smoothing the  the likelihood term instead of adding a pairwise term. As a consequence, finding a minimizer remains simple since there is no interaction between the unknowns, the solution at a pixel does not depend on the solution at its neighbours.
+
+Smoothing with a box filter would not differentiate between pixels within $\mathcal{N}_0$, e.g. it would ignore edges. Therefore weights must be added to account for how pixels relate to each other. Two weighting functions are required, $w_d$ for the distance between pixels and $w_c$ for the colour difference. This is represented as:
+
+\begin{align*}
+  E(x_0, y_0, u, v) &= \sum_{(x, y) \in \mathcal{N}_0} w_d w_c e(x, y, u, v) \\
+  \text{with } w_d &= \exp\left(-\left|\left| (x_0, y_0) - (x, y)\right|\right|^2 / 2\sigma_d\right) \\
+  \text{and } w_c &= \exp\left(-\left|\left| F_t(x_0, y_0) - F_t(x, y)\right|\right|^2 / 2\sigma_c\right)
+\end{align*}
