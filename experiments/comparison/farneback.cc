@@ -61,7 +61,6 @@ void Farneback::drawOptFlowColour(cv::Mat &frame)
   mag.convertTo(_hsv[2], CV_8UC1);
   merge(_hsv, 3, HSV);
   cvtColor(HSV, frame, CV_HSV2BGR);
-    
 }
 
 cv::Mat Farneback::calcOptFlowMap(cv::Mat frame, cv::FileStorage file, double pyr_scale, int levels, int winsize, int iterations, int poly_n, double poly_sigma, int flags)
@@ -72,8 +71,8 @@ cv::Mat Farneback::calcOptFlowMap(cv::Mat frame, cv::FileStorage file, double py
   {
     calcOpticalFlowFarneback(prevImg, nextImg, flow, pyr_scale, levels, winsize, iterations, poly_n, poly_sigma, flags);
     file << "FlowField " << flow;
-    //drawOptFlowColour(frame);
-    drawOptFlowMap(frame, 16);
+    drawOptFlowColour(frame);
+    //drawOptFlowMap(frame, 16);
   }
   std::swap(prevImg, nextImg);
   return frame;

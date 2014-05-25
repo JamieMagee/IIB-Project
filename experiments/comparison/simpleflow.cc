@@ -44,12 +44,13 @@ void SimpleFlow::drawOptFlowMap(cv::Mat &frame, int step)
 	}
 }
 
-cv::Mat SimpleFlow::calcOptFlowMap(cv::Mat &frame, int layers, int averaging_block_size, int max_flow)
+cv::Mat SimpleFlow::calcOptFlowMap(cv::Mat &frame, cv::FileStorage file, int layers, int averaging_block_size, int max_flow)
 {
   nextImg = frame;
   if (prevImg.data)
   {
     calcOpticalFlowSF(prevImg, nextImg, flow, layers, averaging_block_size, max_flow);
+    file << "FlowField " << flow;
     drawOptFlowMap(frame, 16);
   }
   std::swap(prevImg, nextImg);

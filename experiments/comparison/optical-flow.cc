@@ -54,8 +54,7 @@ int main(int argc, char** argv)
 		}
 	}
   
-  std::string input;
-  if (argv[optind++]) input = argv[optind];
+  std::string input = argv[optind++];
   
   cv::VideoCapture cap(input);
   if(!cap.isOpened())
@@ -163,6 +162,7 @@ void lucasKanadeFlow(cv::VideoCapture cap, std::string output)
     printf("Frame %u took %.2fs to process\n",(int)cap.get(CV_CAP_PROP_POS_FRAMES), 
            (double)(clock() - tStart)/CLOCKS_PER_SEC);
   }
+  file.release();
   printf("\nProcessing complete for %s\n", output.c_str());
 }
 
@@ -177,16 +177,19 @@ void simpleFlow(cv::VideoCapture cap, std::string output)
                      (int) cap.get(CV_CAP_PROP_FRAME_HEIGHT)));
                      
   cap.set(CV_CAP_PROP_POS_FRAMES, 0);
+  cv::FileStorage file(output+".yml", cv::FileStorage::WRITE);
+  
   for (int i = 0; i < cap.get(CV_CAP_PROP_FRAME_COUNT); i++)
   {
     clock_t tStart = clock();
     cap >> frame;
     
-    vWriter << sf->calcOptFlowMap(frame, 3, 2, 4);
+    vWriter << sf->calcOptFlowMap(frame, file, 3, 2, 4);
     
     printf("Frame %u took %.2fs to process\n",(int)cap.get(CV_CAP_PROP_POS_FRAMES), 
            (double)(clock() - tStart)/CLOCKS_PER_SEC);
   }
+  file.release();
   printf("\nProcessing complete for %s\n", output.c_str());
 }
 

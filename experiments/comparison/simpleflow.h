@@ -8,7 +8,7 @@
 class SimpleFlow
 {
   public:
-    cv::Mat calcOptFlowMap(cv::Mat &frame, int layers, int averaging_block_size, int max_flow);
+    cv::Mat calcOptFlowMap(cv::Mat &frame, cv::FileStorage file, int layers, int averaging_block_size, int max_flow);
     void drawOptFlowMap(cv::Mat &frame, int step);
   
   private:

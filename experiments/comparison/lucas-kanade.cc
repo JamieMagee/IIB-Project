@@ -38,9 +38,9 @@ cv::Mat LucasKanade::calcOptFlowMap(cv::Mat frame, cv::FileStorage file, int max
   
   //goodFeaturesToTrack(nextImg, nextPts, maxCorners, 0.0000001, 0);
   //cornerSubPix(nextImg, nextPts, cv::Size(10, 10), cv::Size(-1, -1), cv::TermCriteria(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.3));
-  for (int i = 0; i < frame.rows; i++)
+  for (int i = 0; i < frame.rows; i+=16)
   {
-    for(int j = 0; j < frame.cols; j++)
+    for(int j = 0; j < frame.cols; j+=16)
     {
       nextPts.push_back(cv::Point2f(i, j));
     }
