@@ -97,6 +97,9 @@ recompile. Good luck with your writing!}
 
 % *************************** Pre-defined Options ******************************
 
+\newif\ifPHD@title\PHD@titlefalse
+  \DeclareOption{title}{\PHD@titletrue}
+
 % Font Size
 \newcommand\PHD@ptsize{12pt} %Set Default Size as 12
 
@@ -477,7 +480,7 @@ font in the preamble.tex file by specifying `customfont' in the class options}
 % Especially when backmatter is enabled
 
 %\renewcommand\backmatter{
-%    \def\chaptermark##1{\markboth{%
+%    \def\mark##1{\markboth{%
 %        \ifnum  \c@secnumdepth > \m@ne  \@chapapp\ \thechapter:  \fi  ##1}{%
 %        \ifnum  \c@secnumdepth > \m@ne  \@chapapp\ \thechapter:  \fi  ##1}}%
 %    \def\sectionmark##1{\relax}}
@@ -549,6 +552,8 @@ font in the preamble.tex file by specifying `customfont' in the class options}
 % ******************************************************************************
 
 % ******************************** Title Page **********************************
+  
+\ifPHD@title
 \renewcommand{\maketitle}{
 
 % To compute the free vertical space in Title page
@@ -591,7 +596,7 @@ font in the preamble.tex file by specifying `customfont' in the class options}
 \end{minipage}
 \end{singlespace}
 }
-
+\else
 \renewcommand{\maketitle}{
 
   % To compute the free vertical space in Title page
@@ -618,9 +623,9 @@ font in the preamble.tex file by specifying `customfont' in the class options}
   \end{center}
   \end{singlespace}
   \null
-  \newpage
-  
+  \newpage  
 }
+\fi
 
 
 % ********************************* Dedication *********************************

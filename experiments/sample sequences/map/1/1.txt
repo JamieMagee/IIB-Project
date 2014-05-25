@@ -4,38 +4,38 @@ subsampling =
      1
 
 rotate.farneback.avi.txt
-   79.0348
+    2.0990
 
 rotate.lucas-kanade.avi.txt
-   1.6472e+03
+    1.9413
 
 rotate.simpleflow.avi.txt
-   78.9548
+    2.1136
 
 scale.farneback.avi.txt
-   5.1840e+05
+  119.5871
 
 scale.lucas-kanade.avi.txt
-   5.1677e+05
+  126.5109
 
 scale.simpleflow.avi.txt
-      518400
+  120.5000
 
 skew.farneback.avi.txt
-    0.0400
+    0.1122
 
 skew.lucas-kanade.avi.txt
-   5.1494e+03
+    2.6982
 
 skew.simpleflow.avi.txt
      0
 
 translate.farneback.avi.txt
-   9.8829e+04
+    9.9999
 
 translate.lucas-kanade.avi.txt
-   6.8727e+05
+    9.9990
 
 translate.simpleflow.avi.txt
-   5.0515e+03
+   10.0000
 

@@ -15,11 +15,15 @@ function [V, r0, r1] = velfield(X, tform)
 
 % Set up matrix of points r0.
 r0 = ones(n*m, 3);
+n_ = -n/2;
+m_ = -m/2;
 for i = 1:n
-    r0(i:m:(n*m),2) = i;
+    r0(i:m:(n*m),2) = n_;
+    n_ = n_ + 1;
 end
 for j = 1:m
-    r0((n*(j-1) + 1):n*j,1) = j;
+    r0((n*(j-1) + 1):n*j,1) = m_;
+    m_ = m_ + 1;
 end
 
 % Calculate new positions for all points r0 after transformation under
@@ -49,7 +53,7 @@ r1 = reshape(r1_, [n m 2]);
 %     end
 % end
 % figure; eval(['plot(',str,' ''k'');']);
-%quiver(r0(:,:,1),flipud(r0(:,:,2)),V(:,:,1),V(:,:,2))
-%axis('equal');
+% quiver(r0(:,:,1),flipud(r0(:,:,2)),V(:,:,1),V(:,:,2))
+% axis('equal');
 end
 
