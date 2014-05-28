@@ -215,8 +215,5 @@ pip-log.txt
 .mr.developer.cfg
 
 data/
-
-#*.avi
 .idea
-#*.yml
 experiments/sample sequences/map/1/scale.lucas-kanade.avi.yml
