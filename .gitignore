@@ -215,7 +215,7 @@ pip-log.txt
 .mr.developer.cfg
 
 data/
-*.avi
+#*.avi
 .idea
 *.yml
 
