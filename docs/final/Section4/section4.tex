@@ -1,4 +1,4 @@
-\chapter{Results and discussion}
+\chapter{Results and Discussion}
 \label{sec:results}
 
 \ifpdf
@@ -11,12 +11,12 @@
 
 \subsection{Artificial Data}
 
-Plotted in figures~\ref{fig:rotate} to~\ref{fig:translate}, and listed in tables~\ref{tab:rotation} to~\ref{tab:fracture} of Appendix~\ref{sec:appendix3}, are the timing and error (per pixel) values measured and calculated, respectively, averaged over three runs of each optical flow algorithm, so as to eliminate non-deterministic effects, for each of the affine transformations. The video sequences used varied from 480x480 pixels for a subsampling of 1, to 30x30 pixels for a subsampling of 16. The results shown in tables~\ref{tab:rotation} to~\ref{tab:fracture} in Appendix~\ref{sec:appendix3} are rounded to two decimal places, however the plots found in figures~\ref{fig:rotate} to~\ref{fig:translate} show the true values. The author was unable to construct the space dependent flow field required to calculate the accuracy of the fracture transformation, therefore only the timing information is included in table~\ref{tab:fracture}. However, it should be noted that the fracture transformation is effectively a translation.
+Plotted in figures~\ref{fig:rotate} to~\ref{fig:translate}, and listed in tables~\ref{tab:rotation} to~\ref{tab:translate} of Appendix~\ref{sec:appendix3}, including table~\ref{tab:fracture} beneath, are the timing and error (per pixel) values measured and calculated, respectively, averaged over three runs of each optical flow algorithm, so as to eliminate non-deterministic effects, for each of the affine transformations. The results provided in the tables of Appendix~\ref{sec:appendix3} and plotted in the graphs beneath show the unnormalised difference in vector fields $\Delta V$. The video sequences used varied from 480x480 pixels for a subsampling of 1, to 30x30 pixels for a subsampling of 16. The results shown in tables~\ref{tab:rotation} to~\ref{tab:translate} in Appendix~\ref{sec:appendix3}, and table~\ref{tab:fracture} beneath, are rounded to two decimal places, however the plots found in figures~\ref{fig:rotate} to~\ref{fig:translate} show the true values. The author was unable to construct the space dependent flow field required to calculate the accuracy of the fracture transformation, therefore only the timing information is included in table~\ref{tab:fracture}. However, it should be noted that the fracture transformation is effectively a translation.
 
 \begin{figure}[h]
   \centering
   \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{rotate.pdf}}
-  \caption{Rotate: Accuracy vs Speed}
+  \caption{Rotate: Processing Time per Frame vs Error per Pixel}
   \label{fig:rotate}
 \end{figure}
 
@@ -25,7 +25,7 @@ Firstly taking the results for the rotation transformation, plotted in figure~\r
 \begin{figure}[h]
   \centering
   \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{scale.pdf}}
-  \caption{Scale: Accuracy vs Speed}
+  \caption{Scale: Processing Time per Frame vs Error per Pixel}
   \label{fig:scaling}
 \end{figure}
 
@@ -34,7 +34,7 @@ Looking at the results for the scaling transformation, plotted in figure~\ref{fi
 \begin{figure}[h]
   \centering
   \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{shear.pdf}}
-  \caption{Shear: Accuracy vs Speed}
+  \caption{Shear: Processing Time per Frame vs Error per Pixel}
   \label{fig:shear}
 \end{figure}
 
@@ -43,7 +43,7 @@ Looking at the results for the shear transformation, plotted in figure~\ref{fig:
 \begin{figure}[h]
   \centering
   \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{translate}}
-  \caption{Translate: Accuracy vs Speed}
+  \caption{Translate: Processing Time per Frame vs Error per Pixel}
   \label{fig:translate}
 \end{figure}
 
@@ -100,7 +100,7 @@ It is apparent that the Lucas-Kanade optical flow algorithm is the fastest, this
   \label{fig:quiver}
 \end{figure}
 
-In order to aid the visualisation of the vector field of the real world data, and therefore assess the qualitative accuracy of the optical flow algorithms, the vectors calculated from the optical flow methods are drawn on top of each frame of the video. The method used is similar to the MATLAB function \verb|quiver| in that it automatically scales the arrows depending on the magnitude of the vector. An example of the output can be seen in figure~\ref{fig:quiver}.
+In order to aid the visualisation of the vector field of the real world data, and therefore assess the qualitative accuracy of the optical flow algorithms, the vectors calculated from the optical flow methods are drawn on top of each frame of the video. The method written is similar to the MATLAB function \verb|quiver| in that it automatically scales the arrows depending on the magnitude of the vector. An example of the output can be seen in figure~\ref{fig:quiver}.
 
 \begin{figure}[htbp!]
   \centering
@@ -111,14 +111,14 @@ In order to aid the visualisation of the vector field of the real world data, an
   \end{subfigure}
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{colour}
-    \caption{Colour mapping of a scaling}
+    \caption{Colour mapping of a translation}
     \label{fig:colourmap}
   \end{subfigure}
   \caption{Mapping the vector field to the HSV colour space}
   \label{fig:colour}
 \end{figure}
 
-The vector field can also be represented using a colour map. This is achieved by converting the Cartesian vector coordinates into polar coordinates which are then mapped onto the HSV colour space as: Hue = Angle, Saturation = 255, Value = Magnitude. This can be seen in figure~\ref{fig:colour} which depicts the colour mapping of the scaling operation from the artificial dataset. This visualisation method is very useful to gain a quick insight into the apparent motion of the object being observed, without having to further process the vector field from the optical flow algorithm. It should be noted that while this colour mapping is possible for all optical flow algorithms, it is most effective for dense optical flow algorithms. Therefore the Lucas-Kanade algorithm will be required to track all points to achieve a similar output to that of the Farnebäck and SimpleFlow algorithms.
+The vector field can also be represented using a colour map. This is achieved by converting the Cartesian vector coordinates into polar coordinates which are then mapped onto the HSV colour space as: Hue = Angle, Saturation = 255, Value = Magnitude. This can be seen in figure~\ref{fig:colour} which depicts the colour mapping of the translation transformation from the artificial dataset. This visualisation method is very useful to gain a quick insight into the apparent motion of the object being observed, without having to further process the vector field from the optical flow algorithm. It should be noted that while this colour mapping is possible for all optical flow algorithms, it is most effective for dense optical flow algorithms. Therefore the Lucas-Kanade algorithm will be required to track all points to achieve a similar output to that of the Farnebäck and SimpleFlow algorithms.
 
 \section{Mechanical Testing}
 

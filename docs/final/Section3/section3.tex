@@ -1,4 +1,4 @@
-\chapter{Apparatus and experimental techniques}
+\chapter{Apparatus and Experimental Techniques}
 \label{sec:apparatus}
 
 \ifpdf
@@ -7,13 +7,17 @@
     \graphicspath{{Section3/Figs/Vector/}{Section3/Figs/}}
 \fi
 
+Of the optical flow methods mentioned previously in Section~\ref{sec:theory}, \nameref{sec:theory}, Farnebäck and Lucas-Kanade optical flow are well established methods, while SimpleFlow is a relatively novel method. In order to introduce as little human error as possible a pre-existing, well tested, computer vision library will be used. Many computer vision libraries have functionality to use Farnebäck and Lucas-Kanade optical flow, but as SimpleFlow is a relatively new method it is not implemented in many computer vision libraries. Only two computer vision libraries have a complete implementation of the SimpleFlow optical flow method: OpenCV~\cite{opencv} and SimpleCV~\cite{simplecv}. SimpleCV is a Python wrapper for OpenCV, and therefore provides a superset of the functionality of OpenCV. OpenCV provides language bindings for C and C++. OpenCV provides performance benefits over SimpleCV as it is compiled, not interpreted, therefore OpenCV will be used in all the experiments henceforth.
+
 \section{OpenCV}
 
-To aid in implementing image processing algorithms, including optical flow methods, OpenCV~\cite{opencv} was used. OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. A precompiled binary does not exist for the Raspberry Pi, so it was necessary to compile it from source and write instructions on how to do so. On the Raspberry Pi the compilation time is around 10-12 hours depending on the overclock used. 
+OpenCV (Open Source Computer Vision Library) is an open source computer vision and machine learning software library. A precompiled binary does not exist for the Raspberry Pi, so it was necessary to compile it from source and write instructions on how to do so. These instructions can be found in code listing~\ref{lst:opencv} of Appendix~\ref{sec:appendix}. On the Raspberry Pi the compilation time is around 10-12 hours depending on the overclock used. 
 
-Also included in code listing~\ref{lst:opencv}, Appendix~\ref{sec:appendix} are instructions on how to allow the Raspberry Pi camera to interface with the operating system. An extra driver (UV4l-raspi~\cite{uv4l}) is required, however a precompiled binary is available in this case. Also included in written up instructions on how to install SimpleCV~\cite{simplecv}, a Python wrapper for OpenCV. SimpleCV was not used in the following experiments due to the performance benefits of C/C++ over Python, however the instructions are included as they will be provided on the OpenLabTools website.
+Also included in code listing are instructions on how to allow the Raspberry Pi camera to interface with the operating system. An extra driver (UV4l-raspi~\cite{uv4l}) is required, however a precompiled binary is available in this case. Also included in written up instructions on how to install SimpleCV, a Python wrapper for OpenCV. SimpleCV was not used in the following experiments due to the performance benefits of C/C++ over Python, however the instructions are included as they will be provided on the OpenLabTools website.
 
-In order to use the library to perform a comparison, an object oriented program which contained implementations of the Lucas-Kanade, Farnebäck, and SimpleFlow algorithms. The program was designed to be run from the command line, so that it's operation can be scripted using BASH or any other scripting language, and also so as not to waste unnecessary resources on drawing a GUI. The full code listing for the program can be seen online~\cite{github}. Listed below is the help message for the \verb|optical-flow| program. Note that multiple optical flow algorithms can be applied to the same input file at once i.e. \verb|./optical-flow -fls -o output.avi input.avi| will run Lucas-Kanade, Farnebäck and SimpleFlow optical flow algorithms on the file \verb|input.avi| and will output \verb|output.lucas-kanade.avi, output.farneback.avi| and \verb|output.simpleflow.avi|
+In order to use the library to perform a comparison, an object oriented program which contained implementations of the Lucas-Kanade, Farnebäck, and SimpleFlow algorithms was authored. The program was designed to be run from the command line, so that it's operation can be scripted using BASH or any other scripting language, and also so as not to waste unnecessary resources on drawing a GUI. The full code listing for the program can be seen online~\cite{github}. Listed below is the help message for the \verb|optical-flow| program. Note that multiple optical flow algorithms can be applied to the same input file at once i.e. \verb|./optical-flow -fls -o output.avi input.avi| will run Lucas-Kanade, Farnebäck and SimpleFlow optical flow algorithms on the file \verb|input.avi| and will output 
+
+\verb|output.lucas-kanade.avi, output.farneback.avi| and \verb|output.simpleflow.avi|
  
 \singlespacing
 \begin{verbatim}
@@ -38,7 +42,7 @@ Timing data was output from the \verb|optical-flow| program to stdout, however w
 \begin{verbatim}
 Output file fracture.lucas-kanade.avi using Lucas-Kanade optical flow
 
-Frame 1 took 0.24s to process
+Frame 1 took 72.85s to process
 ...
 Frame 11 took 75.38s to process
 
@@ -55,7 +59,7 @@ Output file fracture.lucas-kanade.avi using Lucas-Kanade optical flow
 \end{verbatim}
 \onehalfspacing
 
-In order to process the large amount of optical flow information, and compare it to the known vector flow field, the output from \verb|optical-flow| first has to be converted into a form that can be read by MATLAB. \verb|optical-flow| outputs vector field information in the YAML (Yet Another Markup Language) format, with Farnebäck and SimpleFlow directly outputting the vector field, whereas Lucas-Kanade outputs two arrays, \verb|prevPts| and \verb|nextPts|, which hold the coordinate pairs of the pixels being tracked in frame $F_t$ and followed by their position in frame $F_{t+1}$. An example of the vector field data output from the Farnebäck algorithm is listed below
+In order to process the large amount of optical flow information, and compare it to the known vector flow field, the output from \verb|optical-flow| first has to be converted into a form that can be read by MATLAB. \verb|optical-flow| outputs vector field information in the YAML (Yet Another Markup Language) format, with Farnebäck and SimpleFlow directly outputting the vector field, whereas Lucas-Kanade outputs two arrays, \verb|prevPts| and \verb|nextPts|, which hold the coordinate pairs of the pixels being tracked in frame $F_t$ and followed by an estimation of their position in frame $F_{t+1}$. An example of the vector field data output from the Farnebäck algorithm is listed below
 
 \singlespacing
 \begin{verbatim}
@@ -70,11 +74,11 @@ data: [ 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
 \end{verbatim}
 \onehalfspacing
 
-Therefore a Python script was authored in order to convert this output into something which could be more easily processed. The full script can be seen in code listing~\ref{lst:process} of Appendix~\ref{sec:appendix}. 
+Therefore a Python script was authored to convert this output into something which could be more easily processed. The script can be seen in code listing~\ref{lst:process} of Appendix~\ref{sec:appendix}. 
 
 \subsection{Artificial Data}
 
-The artificial dataset consists of the MATLAB \verb|checkerboard| pattern, which has five different affine transformations repeatedly applied to it in order to generate five different artificial data sequences. The sequences include: translation, rotation, scaling, shearing and fracture. Frames from each of the sample sequences can be seen in Figure~\ref{fig:artificial} below.
+The artificial dataset consists of the MATLAB \verb|checkerboard| pattern, which has five different affine transformations repeatedly applied to it in order to generate five different artificial data sequences. The sequences include: translation, rotation, scaling, shearing and fracture. Frames from each of the sample sequences, overlaid with arrows to show the motion of the pattern, can be seen in Figure~\ref{fig:artificial}.
 
 \begin{figure}[h]
   \centering
@@ -140,7 +144,15 @@ Each of the above sequences was generated by the following affine transformation
   \end{bmatrix}
 \end{align*}
 
-From left to right, the above transformation matrices represent: a translation, of $T_x$ pixels in the x-direction and $T_y$ pixels in the y direction; a rotation of $\theta$ degrees about the centroid of the \verb|checkerboard| pattern; a scaling of $S_x$ in the x-direction and $S_y$ in the y direction; A shear parallel to the x-axis of S pixels i.e. $x' = x + ky$. The fracture is represented in MATLAB as two separate translations applied to two halves of the original \verb|checkerboard| pattern. For this dataset $T_x = -5i, T_y = -5i, \theta = 1^\circ, S_y = (i+1)/2, S_x = (i+1)/2$ and $S = .5$ where $i$ is the frame of the video being generated. The fracture had transformation equivalent to a translation with $T_y = sgn(y)2i$ applied to it, where the centroid of the \verb|checkerboard| pattern is coincident with the origin. Each transformation is applied repeatedly in order to generate sample sequences ten frames long. The MATLAB code used to generate the rotation sample sequence can be seen in code listing~\ref{lst:rotation}. The complete MATLAB code listing used to generate all the sample sequences can be seen in code listing~\ref{lst:generate} in Appendix~\ref{sec:appendix}.
+From left to right, the above transformation matrices represent: 
+\begin{itemize}
+  \item A translation, of $T_x$ pixels in the x-direction and $T_y$ pixels in the y direction
+  \item A rotation of $\theta$ degrees about the centroid of the \verb|checkerboard| pattern
+  \item A scaling of $S_x$ in the x-direction and $S_y$ in the y direction
+  \item A shear parallel to the x-axis of S pixels i.e. $x' = x + ky$
+\end{itemize}
+
+The fracture is represented in MATLAB as two separate translations applied to two halves of the original \verb|checkerboard| pattern. For this dataset $T_x = -5i, T_y = -5i, \theta = 1^\circ, S_y = (i+1)/2, S_x = (i+1)/2$ and $S = 0.5$ where $i$ is the frame of the video being generated. The fracture had transformation equivalent to a translation with $T_y = sgn(y)2i$ applied to it, where the centroid of the \verb|checkerboard| pattern is coincident with the origin. Each transformation is applied repeatedly in order to generate sample sequences ten frames long. The MATLAB code used to generate the rotation sample sequence can be seen in code listing~\ref{lst:rotation}. The complete MATLAB code listing used to generate all the sample sequences can be seen in code listing~\ref{lst:generate} in Appendix~\ref{sec:appendix}.
 
 \singlespacing
 \begin{lstlisting}[language=MATLAB,caption={MATLAB code for creating rotation sample sequence},label=lst:rotation]
@@ -203,7 +215,7 @@ r1 = reshape(r1_, [n m 2]);
 
 It should be noted that while we are only investigating individual affine transformations, the code listed in code listing~\ref{lst:velfield} and the full code in code listing~\ref{lst:velflow} in Appendix~\ref{sec:appendix} also work for arbitrary affine transformation matrices, in addition to projective transformation matrices.
 
-Figure~\ref{fig:shearfield} shows the output from the velocity field calculation plotted using the MATLAB \verb|quiver| function. While at this scale is is impossible to discern the magnitude, or the direction to any degree of accuracy, it can be seen that the magnitude of the velocity grows in proportion to the absolute value of the y-coordinate. 
+Figure~\ref{fig:shearfield} shows the output from the velocity field calculation plotted using the MATLAB \verb|quiver| function. While at this scale it is impossible to discern the magnitude, or the direction to any degree of accuracy, it can be seen that the magnitude of the velocity grows in proportion to the absolute value of the y-coordinate. 
 
 \begin{figure}[h]
   \centering
@@ -220,16 +232,16 @@ In order to examine the algorithms in a real world scenario I was graciously pro
   \centering
   \begin{subfigure}[b]{0.49\textwidth}
     \includegraphics[width=\textwidth]{kamal}
-    \caption{Provided by Mustafa Kamal}
+    \caption{flow-flame interactions from a high speed PIV dataset}
     \label{fig:kamal}
   \end{subfigure}
   \begin{subfigure}[b]{0.49\textwidth}
     \includegraphics[width=\textwidth]{kabla}
-    \caption{Provided by Dr. Alexandre Kabla}
+    \caption{A cultured cell monolayer undergoing tensile testing}
     \label{fig:kabla}
   \end{subfigure}
   \caption{Real world data sets used}
   \label{fig:realworld}
 \end{figure}
 
-As there is no accurate, prior knowledge of the vector flow field, these datasets can only be used to compare the three optical flow algorithms for speed quantitatively, and for accuracy qualitatively. Also, for testing of real world data the Lucas-Kanade algorithm was used as a true sparse optical flow algorithm as opposed to its use in testing the artificial data where it was forced to track all pixels. It selected which pixels to track by calculating the minimal eigenvalue of gradient matrices for corner detection.
+As there is no accurate, prior knowledge of the vector flow field, these datasets can only be used to compare the three optical flow algorithms for speed quantitatively, and for accuracy qualitatively. Also, for testing of real world data the Lucas-Kanade algorithm was used as a true sparse optical flow algorithm as opposed to its use in testing the artificial data where it was forced to track all pixels. It selected which pixels to track by calculating the minimal eigenvalue of gradient matrices for corner detection and selecting those pixels higher than a given threshold.

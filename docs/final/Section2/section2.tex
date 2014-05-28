@@ -1,4 +1,4 @@
-\chapter{Theory and design of experiment}
+\chapter{Optical Flow Theory}
 \label{sec:theory}
 
 \ifpdf
@@ -7,18 +7,16 @@
     \graphicspath{{Section2/Figs/Vector/}{Section2/Figs/}}
 \fi
 
-\section{Optical Flow}
-
 Optical flow methods attempt to calculate the motion between two images, or video frames, taken at time $t$ and $t + \Delta t$ for every pixel in the images. For a 2D case a pixel at location $(x, y, t)$ with intensity $I(x, y, t)$ will have moved by $\Delta x, \Delta y$ and $\Delta t$ between the two image frames and therefore we can impose the constraint on the intensity:
 
 \begin{align*}
-  I(x, y, t) = I(\Delta x, \Delta y, \Delta t)
+  I(x, y, t) = I(x + \Delta x, y + \Delta y, t + \Delta t)
 \end{align*}
 
 If we assume that the movement is small, we can perform a Taylor series expansion on the constraint:
 
 \begin{align*}
-  I(\Delta x, \Delta y, \Delta t) = I(x, y, t) + \frac{\partial I}{\partial x}\Delta x+\frac{\partial I}{\partial y}\Delta y+\frac{\partial I}{\partial t}\Delta t + \dots
+  I(x + \Delta x, y + \Delta y, t + \Delta t) = I(x, y, t) + \frac{\partial I}{\partial x}\Delta x+\frac{\partial I}{\partial y}\Delta y+\frac{\partial I}{\partial t}\Delta t + \dots
 \end{align*}
 
 Ignoring higher order terms, and rearranging, it follows that
@@ -47,7 +45,7 @@ where $V_x,V_y$ are the $x$ and $y$ components of the velocity or optical flow o
 
 where $I_x$, $I_y$ and $I_t$ are $\tfrac{\partial I}{\partial x}$, $\tfrac{\partial I}{\partial y}$ and $\tfrac{\partial I}{\partial t}$ respectively. This is an equation in two unknowns, $I$ and $V$, and therefore we cannot solve it in its current form. We require additional equations which introduce an additional constraint. All optical flow methods introduce an additional constrain to enable estimation of the optical flow.
 
-\subsection{Lucas-Kanade}
+\section{Lucas-Kanade}
 
 \begin{figure}[h]
   \centering
@@ -120,7 +118,7 @@ from which
   \delta = \left[\sum_{x}\left(\frac{\partial F}{\partial x}\right)^T\left[G(x) - F(x)\right]\right]\left[\sum_{x}\left(\frac{\partial F}{\partial x}\right)^T\left(\frac{\partial F}{\partial x}\right)\right]^{-1}
 \end{align*}
 
-\subsection{Farnebäck}
+\section{Farnebäck}
 
 Farnebäck optical flow~\citep{farneback} is classified as a dense optical flow method. Using this method each neighbourhood of pixels is approximated by a quadratic polynomial of the form:
 
@@ -128,7 +126,7 @@ Farnebäck optical flow~\citep{farneback} is classified as a dense optical flow 
 f(x) \approx x^TAx+b^tx+c
 \end{align*}
 
-In the one dimensional case is shown in figure~\ref{fig:farneback}.
+The one dimensional case is shown in figure~\ref{fig:farneback}.
 
 \begin{figure}[h]
   \centering
@@ -171,7 +169,7 @@ b_2 &= b_1 - 2A_1\delta \\
 \delta &= -\frac{1}{2}A_1^{-1}(b_2-b_1)
 \end{align*}
 
-\subsection{SimpleFlow}
+\section{SimpleFlow}
 
 SimpleFlow is a combination of both dense and sparse optical flow, it only runs a full flow estimation at a few key pixels, and linearly interpolates the rest of the flow, thus it is classified as \textit{semi-dense} optical flow~\citep{simpleflow}. At the key pixels a likelihood model is used, that is, we seek flow vectors $(u,v)$ such that $F_t(x,y)$ and $F_{t+1}(x+u,y+v)$ are similar. This is modelled by the energy term:
 

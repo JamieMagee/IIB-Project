@@ -3,7 +3,11 @@
 \label{sec:appendix}
 
 \singlespacing
+
+Included in this appendix are instructions on how to install OpenCV and SimpleCV on the Raspberry Pi, as well as a toolset for comparing optical flow methods, which includes code for: generating sample sequences, calculating idealised optical flow, and processing the output from OpenCVs optical flow methods
+
 \lstinputlisting[caption=How to setup OpenCV on the Raspberry Pi,label=lst:opencv]{"../install opencv.md"}
+\clearpage
 
 %\lstinputlisting[caption=Makefile,label=lst:makefile,language=make]{../../experiments/comparison/Makefile.make}
 
@@ -20,10 +24,14 @@
 %\lstinputlisting[caption=simpleflow.cc,label=lst:simpleflow-cc,language=C++]{"../../experiments/comparison/simpleflow.cc"}
 
 \lstinputlisting[caption=Calculate average processing time per frame,label=lst:timings,language=Python]{"../../experiments/sample sequences/map/timings.py"}
+\clearpage
 \lstinputlisting[caption={Process vector field output from optical-flow},label=lst:process,language=Python]{"../../experiments/sample sequences/process.py"}
+\clearpage
 
 \lstinputlisting[caption=MATLAB code used to generate artifical sample sequences,label=lst:generate,language=MATLAB]{"../../experiments/sample sequences/generate.m"}
+\clearpage
 \lstinputlisting[caption=Calculate velocity field of a transfromation applied to an image,label=lst:velflow,language=MATLAB]{"../../experiments/sample sequences/map/1/velfield.m"}
+\clearpage
 
 %\lstinputlisting[caption=Online instron testing,label=lst:online-cc,language=C++]{"../../experiments/instron/online.cc"}
 %\lstinputlisting[caption=Offline instron testing,label=lst:offline-cc,language=C++]{"../../experiments/instron/offline.cc"}
